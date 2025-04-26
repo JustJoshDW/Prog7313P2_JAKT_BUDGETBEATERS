@@ -45,6 +45,64 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <EditText
+        android:id="@+id/createEmailInput"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Enter Email"
+        android:inputType="textEmailSubject"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <TextView
+        android:id="@+id/emailtxt"
+        android:layout_width="231dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="5dp"
+        android:text="Enter your Email to reset your password"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/neon_blue_button"
+        android:backgroundTint="@null"
+        android:text="SUBMIT"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/createEmailInput" />
+
+    <TextView
+        android:id="@+id/alreadyRegisteredtxt"
+        android:layout_width="254dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="10dp"
+        android:text="CHECK YOUR EMAILS AND FOLLOW THE LINK TO RESET YOUR PASSWORD"
+        android:textAlignment="center"
+
+        android:textColor="#FF1493"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

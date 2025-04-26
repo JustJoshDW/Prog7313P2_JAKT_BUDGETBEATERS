@@ -22,7 +22,7 @@
         android:id="@+id/Menutxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:text="Menu"
         android:textColor="@android:color/white"
         android:textSize="48sp"
@@ -48,12 +48,89 @@
         android:id="@+id/gradient_curved_bg.png"
         android:layout_width="492dp"
         android:layout_height="669dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="190dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
+
+    <Button
+        android:id="@+id/viewPieChartBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="VIEW PIE CHART"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/pastel_green_blue_gradient"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/Menutxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="90dp" />
+
+    <Button
+        android:id="@+id/viewAllExpensesBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="VIEW ALL EXPENSES"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/pastel_green_blue_gradient"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/viewPieChartBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/viewDailySpendingBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="VIEW DAILY SPENDING"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/pastel_green_blue_gradient"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/viewAllExpensesBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/viewProgressDashboardBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="VIEW PROGRESS DASHBOARD"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/pastel_green_blue_gradient"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/viewDailySpendingBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/sharedBudgetingBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="SHARED BUDGETING"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/pastel_green_blue_gradient"
+        android:backgroundTint="@null"
+        app:layout_constraintTop_toBottomOf="@id/viewProgressDashboardBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

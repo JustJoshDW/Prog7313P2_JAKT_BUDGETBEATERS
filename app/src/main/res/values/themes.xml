@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.JAKTProg7313BudgetBeaters" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- FIX FOR MATERIAL 3 BUTTON COLOR -->
+        <item name="materialButtonStyle">@style/MyButton</item>
+
     </style>
 
     <style name="Theme.JAKTProg7313BudgetBeaters" parent="Base.Theme.JAKTProg7313BudgetBeaters" />
+
+    <!-- ADD THIS -->
+    <style name="MyButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@null</item> <!-- REMOVE MATERIAL 3 BACKGROUND PURPLE -->
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:background">@null</item> <!-- Allow your custom drawable to fully show -->
+    </style>
 </resources>

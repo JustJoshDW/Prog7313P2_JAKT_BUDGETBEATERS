@@ -49,7 +49,7 @@
         android:id="@+id/CreateNameInput"
         android:layout_width="190dp"
         android:layout_height="50dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="35dp"
         android:hint="Enter Name"
         android:inputType="textPersonName"
         android:padding="10dp"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <EditText
         android:id="@+id/CreateEmailInput"
@@ -109,7 +109,7 @@
         android:id="@+id/SignUpBtn"
         android:layout_width="189dp"
         android:layout_height="48dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Sign Up"
         android:textColor="@android:color/white"
         android:background="@drawable/neon_blue_button"
@@ -122,7 +122,7 @@
         android:id="@+id/RegisterNametxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
         android:text="Name"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,12 +172,15 @@
 
     <TextView
         android:id="@+id/AlreadyRegisteredtxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Already Registered?"
-        android:textColor="@android:color/white"
+        android:layout_width="175dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="2dp"
+
+        android:text="Already Registered? Login Here"
+        android:textColor="#FF1493"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toBottomOf="@id/SignUpBtn" />
