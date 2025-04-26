@@ -4,13 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.jakt.jaktprog7313budgetbeaters.AppDatabase
-import com.jakt.jaktprog7313budgetbeaters.UserEntity
 import com.jakt.jaktprog7313budgetbeaters.databinding.ActivityRegisterBinding
 import kotlinx.coroutines.launch
 
@@ -69,7 +66,8 @@ class RegisterActivity : AppCompatActivity() {
                                     "Registration successful!",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+                                // Changed to navigate to MenuActivity
+                                startActivity(Intent(this@RegisterActivity, MenuActivity::class.java))
                                 finish()
                             }
                         }
