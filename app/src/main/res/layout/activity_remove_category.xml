@@ -73,6 +73,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/RemoveCategorytxt" />
 
+    <TextView
+        android:id="@+id/RemoveCategoryCONFIRMtxt"
+        android:layout_width="312dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="300dp"
+        android:text="ARE YOU SURE YOU WANT TO REMOVE THIS CATEGORY?"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategorytxt" />
+
+    <Button
+        android:id="@+id/ConfirmDelBtn"
+        android:layout_width="106dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/neon_blue_button"
+        android:text="Yes"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategoryCONFIRMtxt" />
+
+    <Button
+        android:id="@+id/CancelDelBtn"
+        android:layout_width="106dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/neon_pink_button"
+        android:text="No"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategoryCONFIRMtxt" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"

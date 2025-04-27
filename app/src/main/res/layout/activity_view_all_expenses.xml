@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="278dp"
+        android:layout_width="420dp"
+        android:layout_height="241dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +22,7 @@
         android:text="View all Expenses"
         android:layout_width="273dp"
         android:layout_height="161dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textColor="@android:color/white"
@@ -32,17 +32,145 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/gradient_curved_bg.png"
         android:layout_width="492dp"
         android:layout_height="669dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
+
+    <TextView
+        android:id="@+id/oR2txt2"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="316dp"
+        android:text="OR:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <TextView
+        android:id="@+id/CHOOSEDATEtxt"
+        android:layout_width="331dp"
+        android:layout_height="33dp"
+        android:text="PLEASE CHOOSE A DATE PERIOD"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <ImageView
+        android:id="@+id/lineview3"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="244dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/white_button_border"
+        android:text="SAVE SELECTION"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/to2txt" />
+
+    <Button
+        android:id="@+id/saveBtn2"
+        android:layout_width="249dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="176dp"
+        android:background="@drawable/white_button_border"
+        android:text="VIEW ALL EXPENSES"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/to2txt" />
+
+    <EditText
+        android:id="@+id/categoryDescriptionInput2"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="428dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Enter Description"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/to2txt"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="148dp"
+        android:text="TO:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <EditText
+        android:id="@+id/categoryNameInput2"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fromtxt"
+        android:layout_width="155dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="48dp"
+        android:text="FROM:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+
+
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
