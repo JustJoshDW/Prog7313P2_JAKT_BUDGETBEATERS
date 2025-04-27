@@ -8,14 +8,76 @@
     tools:context=".ProgressDashboardActivity"
     android:background="@drawable/marble">
 
+
+
+    <ImageView
+        android:id="@+id/png"
+        android:layout_width="492dp"
+        android:layout_height="669dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.716"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gradient_curved_bg" />
+
+    <ImageView
+        android:id="@+id/lineview8"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="488dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+
+    <ImageView
+        android:id="@+id/lineview7"
+        android:layout_width="305dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="644dp"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+
+    <TextView
+        android:id="@+id/CHOOSEDATEtxt4"
+        android:layout_width="331dp"
+        android:layout_height="33dp"
+        android:text="SELECT A MONTH"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+
+    <ImageView
+        android:id="@+id/lineview6"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="272dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="278dp"
+        android:layout_width="420dp"
+        android:layout_height="206dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
+
 
     <TextView
         android:id="@+id/ProgressDashboardtxt"
@@ -31,17 +93,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/gradient_curved_bg.png"
-        android:layout_width="492dp"
-        android:layout_height="669dp"
-        android:layout_marginTop="240dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gradient_curved_bg" />
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"

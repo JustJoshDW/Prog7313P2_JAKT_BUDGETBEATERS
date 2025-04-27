@@ -8,6 +8,17 @@
     tools:context=".ExpenseDetailsActivity"
     android:background="@drawable/marble">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="410dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_auto_awesome_motion_24" />
+
     <TextView
         android:id="@+id/ExpenseDetailstxt"
         android:layout_width="365dp"
@@ -69,13 +80,12 @@
         android:id="@+id/CHOOSEDATEtxt2"
         android:layout_width="331dp"
         android:layout_height="33dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="EXPENSE DETAILS"
         android:textColor="@android:color/white"
         android:textSize="20sp"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ExpenseDetailstxt" />
 
