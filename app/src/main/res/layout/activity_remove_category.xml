@@ -19,29 +19,60 @@
 
     <TextView
         android:id="@+id/RemoveCategorytxt"
-        android:text="Remove Category"
         android:layout_width="273dp"
         android:layout_height="161dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
+        android:text="Remove A Category"
         android:textColor="@android:color/white"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/gradient_curved_bg.png"
         android:layout_width="492dp"
         android:layout_height="669dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="168dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
+
+
+    <TextView
+        android:id="@+id/RemoveCategorynametxt"
+        android:layout_width="312dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="4dp"
+        android:text="SELECT A CATEGORY TO REMOVE"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategorytxt" />
+
+
+
+    <!--    supposedly a dropdown::::  -->
+
+    <Spinner
+        android:id="@+id/categoryDropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="@android:color/white"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategorytxt" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
