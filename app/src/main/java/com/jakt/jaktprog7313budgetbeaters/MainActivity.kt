@@ -23,9 +23,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Add this click listener
         binding.btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

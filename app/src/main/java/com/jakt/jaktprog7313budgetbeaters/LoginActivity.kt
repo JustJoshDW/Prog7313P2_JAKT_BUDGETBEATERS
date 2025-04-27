@@ -89,7 +89,7 @@ class LoginActivity : AppCompatActivity() {
             "Login successful!",
             Toast.LENGTH_SHORT
         ).show()
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
         finish()
     }
 
