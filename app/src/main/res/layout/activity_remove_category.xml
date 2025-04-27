@@ -61,17 +61,25 @@
 
     <!--    supposedly a dropdown::::  -->
 
-    <Spinner
-        android:id="@+id/categoryDropdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:backgroundTint="@android:color/white"
-        android:textColor="#FF00CC"
-        android:textSize="20sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/RemoveCategoryCONFIRMtxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RemoveCategorytxt" />
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategorynametxt"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <CheckBox
+        android:id="@+id/categoryCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/RemoveCategoryCONFIRMtxt"
@@ -89,7 +97,7 @@
     <Button
         android:id="@+id/ConfirmDelBtn"
         android:layout_width="106dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/neon_blue_button"
         android:text="Yes"
@@ -103,7 +111,7 @@
     <Button
         android:id="@+id/CancelDelBtn"
         android:layout_width="106dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/neon_pink_button"
         android:text="No"

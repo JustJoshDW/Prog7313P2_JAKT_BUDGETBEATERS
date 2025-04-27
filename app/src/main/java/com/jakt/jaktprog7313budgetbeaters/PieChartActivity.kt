@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.jakt.jaktprog7313budgetbeaters.RemoveCategoryActivity
 
 class PieChartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,10 @@ class PieChartActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnAddCategory).setOnClickListener {
             startActivity(Intent(this, AddCategoryActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnDeleteCategory).setOnClickListener {
+            // Use RemoveCategoryActivity instead of DeleteCategoryActivity
+            startActivity(Intent(this, RemoveCategoryActivity::class.java))
         }
     }
 }
