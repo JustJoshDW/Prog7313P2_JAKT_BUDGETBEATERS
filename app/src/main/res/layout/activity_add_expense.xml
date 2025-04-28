@@ -30,7 +30,7 @@
         android:textColor="@android:color/white"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.608"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -84,17 +84,19 @@
         android:id="@+id/DATEInput"
         android:layout_width="270dp"
         android:layout_height="50dp"
-        android:layout_marginTop="376dp"
+        android:layout_marginTop="212dp"
         android:background="@drawable/edit_text_bg"
-        android:hint="ENTER DATE"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="SELECT DATE"
         android:textColorHint="@android:color/black"
+        android:importantForAccessibility="yes"
+        app:layout_constraintBottom_toTopOf="@id/DESCRIPTIONtxt3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/EXPENSEDescriptionInput"
@@ -226,7 +228,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         tools:layout_editor_absoluteY="610dp" />
 
     <ImageView
@@ -244,6 +246,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/SaveBtn"

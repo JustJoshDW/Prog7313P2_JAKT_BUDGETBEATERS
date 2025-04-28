@@ -1,16 +1,17 @@
 package com.jakt.jaktprog7313budgetbeaters
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.jakt.jaktprog7313budgetbeaters.databinding.ActivityAddExpenseBinding
 import kotlinx.coroutines.launch
+import java.util.*
 
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddExpenseBinding
@@ -77,6 +78,28 @@ class AddExpenseActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        // Date picker functionality
+        binding.DATEInput.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            // Date picker dialog
+            val datePickerDialog = DatePickerDialog(
+                this,
+                { _, selectedYear, selectedMonth, selectedDay ->
+                    // Format the date as "yyyy-MM-dd"
+                    val formattedDate = "${selectedYear}-${selectedMonth + 1}-${selectedDay}"
+                    binding.DATEInput.setText(formattedDate)  // Set selected date to the input field
+                },
+                year,
+                month,
+                day
+            )
+            datePickerDialog.show()  // Show the date picker dialog
         }
     }
 
