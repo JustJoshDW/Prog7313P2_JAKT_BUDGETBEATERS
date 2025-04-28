@@ -31,8 +31,8 @@ class ViewAllExpensesActivity : AppCompatActivity() {
         }
 
         // Set up the "Save" button click listener
-        //binding.saveBtn2.setOnClickListener {
-          //  startActivity(Intent(this, AddExpenseActivity::class.java))
-        //}
+        binding.saveBtn2.setOnClickListener {
+            startActivity(Intent(this, AddExpenseActivity::class.java))
+        }
     }
 }

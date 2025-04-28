@@ -32,4 +32,7 @@ interface ExpenseDao {
     // Additional method to delete a specific expense by name (optional)
     @Query("DELETE FROM expenses WHERE name = :expenseName")
     suspend fun deleteExpenseByName(expenseName: String)
+
+    @Query("DELETE FROM expenses WHERE id = :expenseId")
+    suspend fun deleteExpenseById(expenseId: Int)
 }
