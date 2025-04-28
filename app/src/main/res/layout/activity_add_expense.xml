@@ -21,12 +21,12 @@
 
     <TextView
         android:id="@+id/ExpenseDetailstxt"
-        android:layout_width="365dp"
+        android:layout_width="401dp"
         android:layout_height="108dp"
         android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="Expense NAME"
+        android:text="ADD AN EXPENSE"
         android:textColor="@android:color/white"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -218,24 +218,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
+
     <TextView
         android:id="@+id/addPic"
         android:layout_width="180dp"
         android:layout_height="30dp"
+        android:layout_marginBottom="16dp"
         android:text="ADD A PICTURE -->"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        tools:layout_editor_absoluteY="610dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/uploadImageView"
         android:layout_width="64dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/edit_text_bg"
         android:clickable="true"
         android:contentDescription="Upload Picture"
@@ -244,9 +245,8 @@
         android:src="@drawable/camera"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <Button
         android:id="@+id/SaveBtn"
@@ -258,7 +258,7 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/EXPENSEDescriptionInput" />
 
