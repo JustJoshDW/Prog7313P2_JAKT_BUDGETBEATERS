@@ -201,7 +201,6 @@
         android:text="EXPENSE DETAILS"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ExpenseDetailstxt" />
@@ -216,6 +215,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
+
+    <TextView
+        android:id="@+id/addPic"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:text="ADD A PICTURE -->"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="id/bottomNavigationView"
+        tools:layout_editor_absoluteY="610dp" />
+
+    <ImageView
+        android:id="@+id/uploadImageView"
+        android:layout_width="64dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:clickable="true"
+        android:contentDescription="Upload Picture"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/camera"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/edit_text_bg"
+        android:text="SAVE"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EXPENSEDescriptionInput" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
