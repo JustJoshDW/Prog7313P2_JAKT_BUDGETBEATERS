@@ -56,23 +56,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/RemoveCategorytxt" />
-
-
-
     <!--    supposedly a dropdown::::  -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="411dp"
+        android:layout_height="222dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:contentDescription="List of categories"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/RemoveCategoryCONFIRMtxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RemoveCategorynametxt"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:contentDescription="List of categories" />
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategorynametxt" />
 
     <CheckBox
         android:id="@+id/categoryCheckBox"
