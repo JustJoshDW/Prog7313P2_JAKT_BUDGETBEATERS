@@ -21,4 +21,10 @@ interface UserDao {
     // New method to update the user (after modifying the password)
     @Update
     suspend fun updateUser(user: UserEntity)
+
+    @Query("SELECT * FROM users WHERE username = :username LIMIT 1")
+    suspend fun getUserByUsername(username: String): UserEntity?
+
+    @Query("SELECT * FROM users")
+    suspend fun getAllUsers(): List<UserEntity>
 }
