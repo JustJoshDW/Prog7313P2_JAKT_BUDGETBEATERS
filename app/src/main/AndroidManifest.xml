@@ -13,10 +13,7 @@
         android:theme="@style/Theme.JAKTProg7313BudgetBeaters"
         tools:targetApi="31">
         <activity
-            android:name=".AwardsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BudgetingGuidesActivity"
+            android:name=".ResetPassword"
             android:exported="false" />
         <activity
             android:name=".SharedBudgetingActivity"

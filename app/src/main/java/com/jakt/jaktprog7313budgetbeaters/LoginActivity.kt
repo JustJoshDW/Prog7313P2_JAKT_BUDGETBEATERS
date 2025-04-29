@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Login Button Click Listener (using ForgotPasswordBtn as login button)
-        binding.ForgotPasswordBtn.setOnClickListener {
+        binding.LoginBtn.setOnClickListener {
             val username = binding.LoginNameInput.text.toString().trim()
             val password = binding.PasswordInput.text.toString().trim()
 
@@ -36,6 +36,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        // Forgot Password Button Click Listener
+        binding.ForgotPasswordBtn.setOnClickListener {
+            startActivity(Intent(this, ForgotPassActivity::class.java))
+        }
         // Registration Button Click Listener
         binding.RegisterBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
