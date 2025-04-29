@@ -10,17 +10,19 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="411dp"
-        android:layout_height="151dp"
+        android:layout_width="412dp"
+        android:layout_height="140dp"
+        android:rotation="180"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/black_squiggle" />
+        app:srcCompat="@drawable/baseline_auto_awesome_motion_24" />
+
 
     <TextView
         android:id="@+id/SharedBudgetingtxt"
-        android:layout_width="256dp"
-        android:layout_height="112dp"
+        android:layout_width="401dp"
+        android:layout_height="110dp"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
@@ -39,11 +41,112 @@
         android:layout_height="669dp"
         android:layout_marginTop="116dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
+    <TextView
+        android:id="@+id/CHOOSEDATEtxt"
+        android:layout_width="331dp"
+        android:layout_height="33dp"
+        android:text="PLEASE CHOOSE A DATE PERIOD"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <ImageView
+        android:id="@+id/lineview3"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+
+<!--    here goes a dropdown or recycler view-->
+
+    <ImageView
+        android:id="@+id/lineview2"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="420dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+    <TextView
+        android:id="@+id/ExpenseDetails2txt"
+        android:layout_width="331dp"
+        android:layout_height="33dp"
+        android:text="PLEASE CHOOSE A DATE PERIOD"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="290dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+
+    <!--    here goes a expense details thing-->
+
+    <ImageView
+        android:id="@+id/lineview1"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="580dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_line" />
+
+    <TextView
+        android:id="@+id/RemoveCategoryCONFIRMtxt"
+        android:layout_width="312dp"
+        android:layout_height="64dp"
+        android:text="ARE YOU SURE YOU WANT TO REMOVE THIS CATEGORY?"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lineview1" />
+
+    <Button
+        android:id="@+id/ConfirmDelBtn"
+        android:layout_width="106dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/neon_blue_button"
+        android:text="Yes"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategoryCONFIRMtxt" />
+
+    <Button
+        android:id="@+id/CancelDelBtn"
+        android:layout_width="106dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/neon_pink_button"
+        android:text="No"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RemoveCategoryCONFIRMtxt" />
+
+<!--NOTE THAT THINGS CAN BE MOVED-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
