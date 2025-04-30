@@ -35,6 +35,9 @@
             android:name=".ViewAllExpensesActivity"
             android:exported="false" />
         <activity
+            android:name=".ProgressDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".RemoveCategoryActivity"
             android:exported="false" />
         <activity
