@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 class SharedBudgetingActivity : AppCompatActivity() {
@@ -40,6 +41,46 @@ class SharedBudgetingActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        // Set up the BottomNavigationView to handle fragment changes
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+        when (item.itemId) {
+                // Logout fragment
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+
+                // Menu fragment (to show the menu UI when clicked)
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Menu_NavFragment()) // Make sure MenuFragment is created
+                        .commit()
+                    true
+                }
+
+                // Budgeting Guides fragment
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment()) // Budgeting Guides fragment
+                        .commit()
+                    true
+                }
+
+                // Awards fragment
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment()) // Awards fragment
+                        .commit()
+                    true
+                }
+
+                // Default case if any item is selected that we don't have defined
+                else -> false
+            }
         }
     }
 
@@ -106,6 +147,8 @@ class SharedBudgetingActivity : AppCompatActivity() {
             setText(name)
             setTextSize(16f)
             setTextColor(resources.getColor(android.R.color.white))
+            setHintTextColor(resources.getColor(android.R.color.white))
+            setPadding(24, 16, 24, 16)
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -120,6 +163,8 @@ class SharedBudgetingActivity : AppCompatActivity() {
             inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
             setTextSize(16f)
             setTextColor(resources.getColor(android.R.color.white))
+            setHintTextColor(resources.getColor(android.R.color.white))
+            setPadding(24, 16, 24, 16)
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -131,6 +176,7 @@ class SharedBudgetingActivity : AppCompatActivity() {
         membersContainer.addView(nameEditText)
         membersContainer.addView(emailEditText)
     }
+
 
     private fun setupSubmitButton() {
         submitButton.setOnClickListener {
