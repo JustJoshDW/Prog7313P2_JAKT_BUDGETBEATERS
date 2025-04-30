@@ -31,9 +31,13 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, ViewAllExpensesActivity::class.java))
         }
         binding.viewDailySpendingBtn.setOnClickListener {
-            startActivity(Intent(this, ViewAllSpendingActivity::class.java))
+
+            startActivity(Intent(this, DailySpendingActivity::class.java))
         }
+
+
         binding.viewProgressDashboardBtn.setOnClickListener {
+ 
             startActivity(Intent(this, ProgressDashboardActivity::class.java))
         }
         binding.sharedBudgetingBtn.setOnClickListener {
