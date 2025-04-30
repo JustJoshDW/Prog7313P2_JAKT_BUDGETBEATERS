@@ -25,4 +25,5 @@ interface CategoryDao {
 
     @Query("SELECT * FROM categories ORDER BY categoryName ASC")
     suspend fun getAllCategories(): List<CategoryEntity>
+
 }

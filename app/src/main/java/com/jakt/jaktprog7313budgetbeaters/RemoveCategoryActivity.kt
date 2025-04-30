@@ -49,8 +49,12 @@ class RemoveCategoryActivity : AppCompatActivity() {
     }
 
     private fun setupButtons() {
-        binding.ConfirmDelBtn.setOnClickListener { deleteSelectedCategories() }
-        binding.CancelDelBtn.setOnClickListener { finish() }
+        binding.ConfirmDelBtn.setOnClickListener {
+            deleteSelectedCategories()
+        }
+        binding.CancelDelBtn.setOnClickListener {
+            finish()
+        }
     }
 
     private fun loadCategories() {
@@ -77,5 +81,7 @@ class RemoveCategoryActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+        // Close the activity after deletion
+        finish()
     }
 }

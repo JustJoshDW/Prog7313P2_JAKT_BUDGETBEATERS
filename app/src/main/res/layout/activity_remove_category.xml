@@ -65,6 +65,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="List of categories"
+        android:textColor="@android:color/white"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/RemoveCategoryCONFIRMtxt"
         app:layout_constraintEnd_toEndOf="parent"

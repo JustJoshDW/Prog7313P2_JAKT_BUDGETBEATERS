@@ -1,10 +1,9 @@
 package com.jakt.jaktprog7313budgetbeaters
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -21,6 +20,7 @@ class AddCategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
 
+        val db = AppDatabase.getDatabase(applicationContext)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,16 +29,23 @@ class AddCategoryActivity : AppCompatActivity() {
 
         binding.SaveBtn.setOnClickListener {
             val categoryName = binding.categoryNameInput.text.toString().trim()
-            val description = binding.categoryDescriptionInput.text.toString().trim()
+            val description = binding.DescriptionInput.text.toString().trim()
+            val maxLimitStr = binding.MaxLimitInput.text.toString().trim()
+            val minLimitStr = binding.MinLimitInput.text.toString().trim()
 
-            if (validateInput(categoryName)) {
+            if (validateInput(categoryName, maxLimitStr, minLimitStr)) {
+                val maxLimit = maxLimitStr.toInt()
+                val minLimit = minLimitStr.toInt()
+
                 lifecycleScope.launch {
                     try {
                         val database = AppDatabase.getDatabase(applicationContext)
                         database.categoryDao().insertCategory(
                             CategoryEntity(
                                 categoryName = categoryName,
-                                description = if (description.isNotEmpty()) description else null
+                                description = if (description.isNotEmpty()) description else null,
+                                maxLimit = maxLimit,
+                                minLimit = minLimit
                             )
                         )
 
@@ -48,7 +55,7 @@ class AddCategoryActivity : AppCompatActivity() {
                                 "Category saved successfully!",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            finish()  // Close the activity after saving
+                            finish()
                         }
                     } catch (e: Exception) {
                         runOnUiThread {
@@ -64,14 +71,28 @@ class AddCategoryActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInput(categoryName: String): Boolean {
+    private fun validateInput(categoryName: String, maxLimit: String, minLimit: String): Boolean {
         var isValid = true
 
         if (categoryName.isEmpty()) {
             binding.categoryNameInput.error = "Category name required"
             isValid = false
-        } else {
-            binding.categoryNameInput.error = null
+        }
+
+        if (maxLimit.isEmpty()) {
+            binding.MaxLimitInput.error = "Max goal is required"
+            isValid = false
+        } else if (!maxLimit.all { it.isDigit() }) {
+            binding.MaxLimitInput.error = "Only numbers allowed"
+            isValid = false
+        }
+
+        if (minLimit.isEmpty()) {
+            binding.MinLimitInput.error = "Min goal is required"
+            isValid = false
+        } else if (!minLimit.all { it.isDigit() }) {
+            binding.MinLimitInput.error = "Only numbers allowed"
+            isValid = false
         }
 
         return isValid
