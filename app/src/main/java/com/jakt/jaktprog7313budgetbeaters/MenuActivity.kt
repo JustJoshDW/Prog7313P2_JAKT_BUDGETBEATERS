@@ -33,10 +33,11 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.viewDailySpendingBtn.setOnClickListener {
-            startActivity(Intent(this, ViewAllSpendingActivity::class.java))
+
+            startActivity(Intent(this, DailySpendingActivity::class.java))
         }
 
-        binding.viewProgressDashboardBtn.setOnClickListener {
+            binding.viewProgressDashboardBtn.setOnClickListener {
             startActivity(Intent(this, ProgressDashboardActivity::class.java))
         }
 
