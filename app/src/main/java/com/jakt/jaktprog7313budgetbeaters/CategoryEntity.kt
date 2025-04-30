@@ -9,5 +9,7 @@ data class CategoryEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val categoryName: String,
-    val description: String? = null
+    val description: String? = null,
+    val maxLimit: Int,
+    val minLimit: Int
 )
