@@ -3,6 +3,7 @@ package com.jakt.jaktprog7313budgetbeaters
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -20,7 +21,6 @@ class DailySpendingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDailySpendingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setupDatePickers()
         setupButtons()
 
@@ -69,27 +69,29 @@ class DailySpendingActivity : AppCompatActivity() {
         val startCalendar = Calendar.getInstance()
         val endCalendar = Calendar.getInstance()
 
-        binding.startDateInput.setOnClickListener {
+        binding.fromDateInput.setOnClickListener {
             DatePickerDialog(this, { _, y, m, d ->
                 startCalendar.set(y, m, d)
-                binding.startDateInput.setText(dateFormatter.format(startCalendar.time))
+                binding.fromDateInput.setText(dateFormatter.format(startCalendar.time))
             }, startCalendar.get(Calendar.YEAR), startCalendar.get(Calendar.MONTH), startCalendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
 
-        binding.endDateInput.setOnClickListener {
+        binding.toDateInput.setOnClickListener {
             DatePickerDialog(this, { _, y, m, d ->
                 endCalendar.set(y, m, d)
-                binding.endDateInput.setText(dateFormatter.format(endCalendar.time))
+                binding.toDateInput.setText(dateFormatter.format(endCalendar.time))
             }, endCalendar.get(Calendar.YEAR), endCalendar.get(Calendar.MONTH), endCalendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
     }
 
     private fun setupButtons() {
-        binding.saveBtn.setOnClickListener {
-            val start = binding.startDateInput.text.toString()
-            val end = binding.endDateInput.text.toString()
+        val startDateInput = binding.fromDateInput
+        val endDateInput = binding.toDateInput
+        binding.submitBtn.setOnClickListener {
+            val start = binding.fromDateInput.text.toString()
+            val end = binding.toDateInput.text.toString()
 
             if (start.isEmpty() || end.isEmpty()) {
                 Toast.makeText(this, "Please select both dates", Toast.LENGTH_SHORT).show()
@@ -108,7 +110,7 @@ class DailySpendingActivity : AppCompatActivity() {
             }
         }
 
-        binding.saveBtn2.setOnClickListener {
+        binding.ViewAllBtn.setOnClickListener {
             startActivity(Intent(this, ViewAllSpendingActivity::class.java))
         }
     }

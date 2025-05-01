@@ -38,4 +38,18 @@ interface ExpenseDao {
 
     @Query("SELECT * FROM expenses WHERE date BETWEEN :start AND :end")
     suspend fun getExpensesByDateRange(start: String, end: String): List<ExpenseEntity>
+
+    @Query("SELECT DISTINCT category FROM expenses")
+    suspend fun getAllCategories(): List<String>
+
+    @Query("""
+        SELECT SUM(amount) FROM expenses 
+        WHERE category = :category 
+        AND date BETWEEN :startDate AND :endDate
+    """)
+    suspend fun getTotalSpentForCategoryInRange(
+        category: String,
+        startDate: String,
+        endDate: String
+    ): Double?
 }

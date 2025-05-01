@@ -32,18 +32,16 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/gradient_curved_bg.png"
+        android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
         android:layout_height="669dp"
         android:layout_marginTop="108dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.654"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
@@ -84,7 +82,6 @@
         android:text="EXPENSE DETAILS"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ExpenseDetailstxt" />

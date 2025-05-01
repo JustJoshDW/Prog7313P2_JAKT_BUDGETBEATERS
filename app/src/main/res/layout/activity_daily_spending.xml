@@ -34,29 +34,15 @@
 
 
     <ImageView
-        android:id="@+id/gradient_curved_bg.png"
+        android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
         android:layout_height="669dp"
         android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
-
-    <TextView
-        android:id="@+id/oR2txt2"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="316dp"
-        android:text="OR:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <TextView
         android:id="@+id/CHOOSEDATEtxt"
@@ -66,7 +52,6 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
@@ -81,91 +66,110 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="244dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="76dp"
-        android:background="@drawable/white_button_border"
-        android:text="SAVE SELECTION"
-        android:textColor="#FF00CC"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/to2txt" />
-
-    <Button
-        android:id="@+id/saveBtn2"
-        android:layout_width="354dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="176dp"
-        android:background="@drawable/white_button_border"
-        android:text="VIEW ALL DAILY SPENDING"
-        android:textColor="#FF00CC"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.701"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/to2txt" />
-
-    <EditText
-        android:id="@+id/categoryDescriptionInput2"
-        android:layout_width="270dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="428dp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Enter Description"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.297"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/to2txt"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="148dp"
-        android:text="TO:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
-
-    <EditText
-        android:id="@+id/categoryNameInput2"
-        android:layout_width="270dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="328dp"
-        android:background="@drawable/edit_text_bg"
-        android:hint="Enter Name"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.297"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/fromtxt"
+        android:id="@+id/fromTxt"
         android:layout_width="155dp"
         android:layout_height="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:text="FROM:"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/lineview3" />
+
+    <EditText
+        android:id="@+id/fromDateInput"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edit_text_bg"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="SELECT DATE"
+        android:importantForAccessibility="yes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fromTxt" />
+
+    <TextView
+        android:id="@+id/toTxt"
+        android:layout_width="155dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="12dp"
+        android:text="TO:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fromDateInput" />
+
+    <EditText
+        android:id="@+id/toDateInput"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_bg"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="SELECT DATE"
+        android:importantForAccessibility="yes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toTxt" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="125dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_button_border"
+        android:text="SUBMIT"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toDateInput" />
+
+    <Button
+        android:id="@+id/ViewAllBtn"
+        android:layout_width="249dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/white_button_border"
+        android:text="VIEW ALL EXPENSES"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
+
+    <TextView
+        android:id="@+id/orTxt"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:text="OR:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -177,7 +181,5 @@
         app:labelVisibilityMode="labeled"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

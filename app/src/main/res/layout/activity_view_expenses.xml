@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
-
     <TextView
         android:id="@+id/ViewExpenses"
         android:layout_width="250dp"
@@ -37,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/gradient_curved_bg"
+        android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
         android:layout_height="669dp"
         android:layout_marginTop="130dp"
@@ -47,21 +46,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
-    <TextView
-        android:id="@+id/oR2txt2"
-        android:layout_width="75dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:text="OR:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
     <TextView
-        android:id="@+id/CHOOSEDATEtxt"
+        android:id="@+id/ChooseDateTxt"
         android:layout_width="331dp"
         android:layout_height="33dp"
         android:layout_marginTop="32dp"
@@ -70,10 +57,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gradient_curved_bg" />
+        app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
     <ImageView
-        android:id="@+id/lineview3"
+        android:id="@+id/lineView"
         android:layout_width="397dp"
         android:layout_height="10dp"
         android:layout_marginTop="192dp"
@@ -83,60 +70,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="125dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/white_button_border"
-        android:text="SUMBIT"
-        android:textColor="#FF00CC"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/to2txt" />
-
-
-    <Button
-        android:id="@+id/ViewAllBtn"
-        android:layout_width="249dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/white_button_border"
-        android:text="VIEW ALL EXPENSES"
-        android:textColor="#FF00CC"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
-
-    <EditText
-        android:id="@+id/ToDateInput"
-        android:layout_width="175dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/edit_text_bg"
-        android:clickable="true"
-        android:focusable="false"
-        android:hint="SELECT DATE"
-        android:importantForAccessibility="yes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/to2txt" />
-
     <TextView
-        android:id="@+id/to2txt"
+        android:id="@+id/fromTxt"
         android:layout_width="155dp"
         android:layout_height="28dp"
         android:layout_marginTop="8dp"
-        android:text="TO:"
+        android:text="FROM:"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CHOOSEDATEtxt" />
+        app:layout_constraintTop_toBottomOf="@id/ChooseDateTxt" />
 
     <EditText
         android:id="@+id/FromDateInput"
@@ -151,20 +96,74 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fromtxt" />
+        app:layout_constraintTop_toBottomOf="@id/fromTxt" />
 
     <TextView
-        android:id="@+id/fromtxt"
+        android:id="@+id/toTxt"
         android:layout_width="155dp"
         android:layout_height="28dp"
         android:layout_marginTop="8dp"
-        android:text="FROM:"
+        android:text="TO:"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CHOOSEDATEtxt" />
+        app:layout_constraintTop_toBottomOf="@id/ChooseDateTxt" />
+
+    <EditText
+        android:id="@+id/ToDateInput"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edit_text_bg"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="SELECT DATE"
+        android:importantForAccessibility="yes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toTxt" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="125dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/white_button_border"
+        android:text="SUMBIT"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toTxt" />
+
+    <Button
+        android:id="@+id/ViewAllBtn"
+        android:layout_width="249dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/white_button_border"
+        android:text="VIEW ALL EXPENSES"
+        android:textColor="#FF00CC"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
+
+    <TextView
+        android:id="@+id/orTxt"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:text="OR:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -190,8 +189,6 @@
                 android:text="Scrollable content goes here..."
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
-
-            <!-- Add more Views here as needed -->
 
         </LinearLayout>
     </ScrollView>

@@ -95,6 +95,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:backgroundTint="#FF000000"
         tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
@@ -107,4 +108,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:backgroundTint="#FF000000"
         tools:ignore="MissingConstraints" />
+
   </androidx.constraintlayout.widget.ConstraintLayout>

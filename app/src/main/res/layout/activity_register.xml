@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/gradient_curved_bg.png"
+        android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
         android:layout_height="700dp"
         android:layout_marginTop="175dp"
