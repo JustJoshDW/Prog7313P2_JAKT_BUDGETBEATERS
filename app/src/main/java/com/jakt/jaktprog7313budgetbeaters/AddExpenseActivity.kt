@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jakt.jaktprog7313budgetbeaters.databinding.ActivityAddExpenseBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -92,6 +93,8 @@ class AddExpenseActivity : AppCompatActivity() {
             }, year, month, day)
             datePickerDialog.show()
         }
+
+        setupBottomNav()
     }
 
     private fun loadCategoriesFromDatabase() {
@@ -194,5 +197,37 @@ private fun openImagePicker() {
 
     companion object {
         const val IMAGE_PICK_CODE = 1000
+    }
+
+    private fun setupBottomNav() {
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Menu_NavFragment())
+                        .commit()
+                    true
+                }
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment())
+                        .commit()
+                    true
+                }
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment())
+                        .commit()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }

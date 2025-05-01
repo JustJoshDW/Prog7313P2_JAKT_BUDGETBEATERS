@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 class CategoriesActivity : AppCompatActivity() {
@@ -27,6 +28,8 @@ class CategoriesActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        setupBottomNav()
     }
 
     private fun setupRecyclerView() {
@@ -43,6 +46,38 @@ class CategoriesActivity : AppCompatActivity() {
             runOnUiThread {
                 adapter = SimpleCategoryAdapter(categories)
                 recyclerView.adapter = adapter
+            }
+        }
+    }
+
+    private fun setupBottomNav() {
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Menu_NavFragment())
+                        .commit()
+                    true
+                }
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment())
+                        .commit()
+                    true
+                }
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment())
+                        .commit()
+                    true
+                }
+                else -> false
             }
         }
     }

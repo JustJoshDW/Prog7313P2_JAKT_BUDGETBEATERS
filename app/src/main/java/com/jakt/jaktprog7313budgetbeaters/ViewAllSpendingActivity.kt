@@ -1,197 +1,3 @@
-//package com.jakt.jaktprog7313budgetbeaters
-//
-//import android.app.DatePickerDialog
-//import android.os.Bundle
-//import android.widget.EditText
-//import android.widget.Toast
-//import androidx.appcompat.app.AppCompatActivity
-//import androidx.lifecycle.lifecycleScope
-//import com.github.mikephil.charting.charts.BarChart
-//import com.github.mikephil.charting.components.XAxis
-//import com.github.mikephil.charting.data.BarData
-//import com.github.mikephil.charting.data.BarDataSet
-//import com.github.mikephil.charting.data.BarEntry
-//import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-//import com.github.mikephil.charting.utils.ColorTemplate
-//import com.google.android.material.bottomnavigation.BottomNavigationView
-//import com.jakt.jaktprog7313budgetbeaters.databinding.ActivityViewAllSpendingBinding
-//import kotlinx.coroutines.launch
-//import java.text.SimpleDateFormat
-//import java.util.Calendar
-//import java.util.Locale
-//
-//class ViewAllSpendingActivity : AppCompatActivity() {
-//    private lateinit var binding: ActivityViewAllSpendingBinding
-//    private lateinit var barChart: BarChart
-//    private lateinit var etFromDate: EditText
-//    private lateinit var etToDate: EditText
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = ActivityViewAllSpendingBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        barChart = binding.barChart
-//        etFromDate = binding.etFromDate
-//        etToDate = binding.etToDate
-//
-//        setupDatePickers()
-//        setupChartAppearance()
-//        setupFilterButton()
-//        loadData()
-//
-//        // Bottom navigation setup
-//        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.Logout -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, LogoutFragment())
-//                        .commit()
-//                    true
-//                }
-//                R.id.Menu -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, Menu_NavFragment())
-//                        .commit()
-//                    true
-//                }
-//                R.id.BudgetingGuides -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, BudgetingGuidesFragment())
-//                        .commit()
-//                    true
-//                }
-//                R.id.Awards -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, AwardsFragment())
-//                        .commit()
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-//    }
-//
-//    private fun setupDatePickers() {
-//        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-//        val calendar = Calendar.getInstance()
-//
-//        val datePicker = { editText: EditText ->
-//            DatePickerDialog(
-//                this,
-//                { _, year, month, day ->
-//                    calendar.set(year, month, day)
-//                    editText.setText(dateFormat.format(calendar.time))
-//                },
-//                calendar.get(Calendar.YEAR),
-//                calendar.get(Calendar.MONTH),
-//                calendar.get(Calendar.DAY_OF_MONTH)
-//            ).show()
-//        }
-//
-//        etFromDate.setOnClickListener { datePicker(etFromDate) }
-//        etToDate.setOnClickListener { datePicker(etToDate) }
-//    }
-//
-//    private fun setupFilterButton() {
-//        binding.btnFilter.setOnClickListener {
-//            loadData()
-//        }
-//    }
-//
-//    private fun setupChartAppearance() {
-//        with(barChart) {
-//            description.isEnabled = false
-//            setDrawGridBackground(false)
-//            setTouchEnabled(true)
-//            setPinchZoom(true)
-//            isDragEnabled = true
-//            xAxis.position = XAxis.XAxisPosition.BOTTOM
-//            axisRight.isEnabled = false
-//        }
-//    }
-//
-//    private fun loadData() {
-//        val start = etFromDate.text.toString()
-//        val end = etToDate.text.toString()
-//
-//        lifecycleScope.launch {
-//            val database = AppDatabase.getDatabase(applicationContext)
-//            try {
-//                val allExpenses = database.expenseDao().getAllExpenses()
-//                val filteredExpenses = if (start.isNotEmpty() && end.isNotEmpty()) {
-//                    val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-//                    val dbDateFormat = SimpleDateFormat("yyyy-M-d", Locale.getDefault())
-//
-//                    val startDate = sdf.parse(start) ?: return@launch
-//                    val endDate = sdf.parse(end) ?: return@launch
-//
-//                    allExpenses.filter { expense ->
-//                        try {
-//                            val expenseDate = dbDateFormat.parse(expense.date)!!
-//                            expenseDate in startDate..endDate
-//                        } catch (e: Exception) {
-//                            false
-//                        }
-//                    }
-//                } else {
-//                    allExpenses
-//                }
-//
-//                runOnUiThread {
-//                    if (filteredExpenses.isEmpty()) {
-//                        Toast.makeText(
-//                            this@ViewAllSpendingActivity,
-//                            "No expenses found in selected range",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        barChart.clear()
-//                        barChart.invalidate()
-//                    } else {
-//                        setupBarChart(groupByCategory(filteredExpenses))
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                runOnUiThread {
-//                    Toast.makeText(
-//                        this@ViewAllSpendingActivity,
-//                        "Error loading data: ${e.message}",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//            }
-//        }
-//    }
-//
-//    private fun groupByCategory(expenses: List<ExpenseEntity>) =
-//        expenses.groupBy { it.category }
-//            .mapValues { it.value.sumOf { exp -> exp.amount } }
-//
-//    private fun setupBarChart(categoryMap: Map<String, Double>) {
-//        val entries = categoryMap.entries.mapIndexed { i, (cat, total) ->
-//            BarEntry(i.toFloat(), total.toFloat())
-//        }
-//        val labels = categoryMap.keys.toList()
-//
-//        val dataSet = BarDataSet(entries, "Expenses by Category").apply {
-//            colors = ColorTemplate.MATERIAL_COLORS.toList()
-//            valueTextColor = android.graphics.Color.BLACK
-//            valueTextSize = 12f
-//        }
-//
-//        barChart.xAxis.apply {
-//            valueFormatter = IndexAxisValueFormatter(labels)
-//            labelCount = labels.size
-//            position = XAxis.XAxisPosition.BOTTOM
-//            granularity = 1f
-//        }
-//
-//        barChart.data = BarData(dataSet)
-//        barChart.animateY(1000)
-//        barChart.invalidate()
-//    }
-//}
-
 package com.jakt.jaktprog7313budgetbeaters
 
 import android.app.DatePickerDialog
@@ -231,7 +37,7 @@ class ViewAllSpendingActivity : AppCompatActivity() {
         setupChartAppearance()
         setupFilterButton()
         loadData()
-        setupBottomNavigation()
+        setupBottomNav()
     }
 
     private fun initializeViews() {
@@ -363,25 +169,6 @@ class ViewAllSpendingActivity : AppCompatActivity() {
         barChart.invalidate()
     }
 
-    private fun setupBottomNavigation() {
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.Logout -> replaceFragment(LogoutFragment())
-                R.id.Menu -> replaceFragment(Menu_NavFragment())
-                R.id.BudgetingGuides -> replaceFragment(BudgetingGuidesFragment())
-                R.id.Awards -> replaceFragment(AwardsFragment())
-                else -> false
-            }
-        }
-    }
-
-    private fun replaceFragment(fragment: androidx.fragment.app.Fragment): Boolean {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .commit()
-        return true
-    }
-
     private fun showNoDataMessage() {
         Toast.makeText(this, "No expenses found in selected range", Toast.LENGTH_SHORT).show()
         barChart.clear()
@@ -395,6 +182,38 @@ class ViewAllSpendingActivity : AppCompatActivity() {
                 "Error loading data: ${e.message}",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+    }
+
+    private fun setupBottomNav() {
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Menu_NavFragment())
+                        .commit()
+                    true
+                }
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment())
+                        .commit()
+                    true
+                }
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment())
+                        .commit()
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

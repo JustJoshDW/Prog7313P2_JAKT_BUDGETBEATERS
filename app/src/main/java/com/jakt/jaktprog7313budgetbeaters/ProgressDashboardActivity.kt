@@ -53,7 +53,7 @@ class ProgressDashboardActivity : AppCompatActivity() {
         backButton = findViewById(R.id.backBtn)
 
         setupMonthSpinner()
-        setupBottomNavigation()
+        setupBottomNav()
 
         exportButton.setOnClickListener {
             exportChartAsImage()
@@ -159,7 +159,7 @@ class ProgressDashboardActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupBottomNavigation() {
+    private fun setupBottomNav() {
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.Logout -> {

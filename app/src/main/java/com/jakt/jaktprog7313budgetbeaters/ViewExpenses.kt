@@ -43,38 +43,7 @@ class ViewExpenses : AppCompatActivity() {
         setupRecyclerView()
         setupButtons()
         loadAllExpenses()
-
-        // Bottom navigation setup
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-            .setOnItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.Logout -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, LogoutFragment())
-                            .commit()
-                        true
-                    }
-                    R.id.Menu -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, Menu_NavFragment())
-                            .commit()
-                        true
-                    }
-                    R.id.BudgetingGuides -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, BudgetingGuidesFragment())
-                            .commit()
-                        true
-                    }
-                    R.id.Awards -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, AwardsFragment())
-                            .commit()
-                        true
-                    }
-                    else -> false
-                }
-            }
+        setupBottomNav()
     }
 
     private fun setupViews() {
@@ -195,5 +164,37 @@ class ViewExpenses : AppCompatActivity() {
         toDateInput.text.clear()
         adapter = FilteredExpenseAdapter(allExpenses)
         recyclerView.adapter = adapter
+    }
+
+    private fun setupBottomNav() {
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Menu_NavFragment())
+                        .commit()
+                    true
+                }
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment())
+                        .commit()
+                    true
+                }
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment())
+                        .commit()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
