@@ -2,20 +2,25 @@ package com.jakt.jaktprog7313budgetbeaters
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.jakt.jaktprog7313budgetbeaters.databinding.ActivityAddExpenseBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddExpenseBinding
-    private var selectedImageUri: String? = null
+    private var selectedImageUri: Uri? = null // Changed to Uri type
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,27 +28,29 @@ class AddExpenseActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
 
-        // Set up window insets for edge-to-edge layout
+        // Handle insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // Load categories from database into spinner
+        loadCategoriesFromDatabase()
+
         // Handle image upload
         binding.uploadImageView.setOnClickListener {
             openImagePicker()
         }
 
-        // Handle saving expense data
+        // Save button functionality
         binding.SaveBtn.setOnClickListener {
             val expenseName = binding.EXPENSENameInput3.text.toString().trim()
-            val category = binding.CATEGORYInput.text.toString().trim()
+            val category = binding.CATEGORYSpinner.selectedItem?.toString() ?: ""
             val date = binding.DATEInput.text.toString().trim()
             val amount = binding.EXPENSEInput3.text.toString().trim().toDoubleOrNull()
             val description = binding.EXPENSEDescriptionInput.text.toString().trim()
 
-            // Validate input fields
             if (validateInput(expenseName, category, date, amount, description)) {
                 lifecycleScope.launch {
                     try {
@@ -53,53 +60,57 @@ class AddExpenseActivity : AppCompatActivity() {
                                 name = expenseName,
                                 category = category,
                                 date = date,
-                                amount = amount ?: 0.0, // Default to 0 if not provided
+                                amount = amount ?: 0.0,
                                 description = if (description.isNotEmpty()) description else null,
-                                imagePath = selectedImageUri // Save image URI if available
+                                imagePath = selectedImageUri?.toString() // Saving URI as string
                             )
                         )
-
                         runOnUiThread {
-                            Toast.makeText(
-                                this@AddExpenseActivity,
-                                "Expense saved successfully!",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            finish()  // Close activity after saving
+                            Toast.makeText(this@AddExpenseActivity, "Expense saved successfully!", Toast.LENGTH_SHORT).show()
+                            finish()
                         }
                     } catch (e: Exception) {
                         runOnUiThread {
-                            Toast.makeText(
-                                this@AddExpenseActivity,
-                                "Error saving expense: ${e.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(this@AddExpenseActivity, "Error saving expense: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
         }
 
-        // Date picker functionality
+        // Date picker
         binding.DATEInput.setOnClickListener {
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            // Date picker dialog
-            val datePickerDialog = DatePickerDialog(
-                this,
-                { _, selectedYear, selectedMonth, selectedDay ->
-                    // Format the date as "yyyy-MM-dd"
-                    val formattedDate = "${selectedYear}-${selectedMonth + 1}-${selectedDay}"
-                    binding.DATEInput.setText(formattedDate)  // Set selected date to the input field
-                },
-                year,
-                month,
-                day
-            )
-            datePickerDialog.show()  // Show the date picker dialog
+            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val formattedDate = "${selectedYear}-${selectedMonth + 1}-${selectedDay}"
+                binding.DATEInput.setText(formattedDate)
+            }, year, month, day)
+
+            datePickerDialog.show()
+        }
+    }
+
+    private fun loadCategoriesFromDatabase() {
+        lifecycleScope.launch {
+            try {
+                val db = AppDatabase.getDatabase(applicationContext)
+                val categoryNames = withContext(Dispatchers.IO) {
+                    db.categoryDao().getAllCategories().map { it.categoryName }
+                }
+
+                if (categoryNames.isNotEmpty()) {
+                    val adapter = ArrayAdapter(this@AddExpenseActivity, android.R.layout.simple_spinner_dropdown_item, categoryNames)
+                    binding.CATEGORYSpinner.adapter = adapter
+                } else {
+                    Toast.makeText(this@AddExpenseActivity, "No categories found. Please add some first.", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this@AddExpenseActivity, "Error loading categories: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -113,53 +124,41 @@ class AddExpenseActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             val imageUri = data?.data
-            selectedImageUri = imageUri?.toString() // Convert URI to String for storage
-            binding.uploadImageView.setImageURI(imageUri) // Display the image
+            selectedImageUri = imageUri
+            // Use Glide to load the image into the ImageView
+            Glide.with(this)
+                .load(imageUri)
+                .into(binding.uploadImageView)
         }
     }
 
     private fun validateInput(expenseName: String, category: String, date: String, amount: Double?, description: String): Boolean {
         var isValid = true
 
-        // Validate expense name
         if (expenseName.isEmpty()) {
             binding.EXPENSENameInput3.error = "Expense name required"
             isValid = false
-        } else {
-            binding.EXPENSENameInput3.error = null
-        }
+        } else binding.EXPENSENameInput3.error = null
 
-        // Validate category
-        if (category.isEmpty()) {
-            binding.CATEGORYInput.error = "Category required"
+        if (category.isEmpty() || category == "Select Category") {
+            Toast.makeText(this, "Please select a category", Toast.LENGTH_SHORT).show()
             isValid = false
-        } else {
-            binding.CATEGORYInput.error = null
         }
 
-        // Validate date
         if (date.isEmpty()) {
             binding.DATEInput.error = "Date required"
             isValid = false
-        } else {
-            binding.DATEInput.error = null
-        }
+        } else binding.DATEInput.error = null
 
-        // Validate amount
         if (amount == null || amount <= 0) {
             binding.EXPENSEInput3.error = "Valid amount required"
             isValid = false
-        } else {
-            binding.EXPENSEInput3.error = null
-        }
+        } else binding.EXPENSEInput3.error = null
 
-        // Validate description
         if (description.isEmpty()) {
             binding.EXPENSEDescriptionInput.error = "Description required"
             isValid = false
-        } else {
-            binding.EXPENSEDescriptionInput.error = null
-        }
+        } else binding.EXPENSEDescriptionInput.error = null
 
         return isValid
     }
