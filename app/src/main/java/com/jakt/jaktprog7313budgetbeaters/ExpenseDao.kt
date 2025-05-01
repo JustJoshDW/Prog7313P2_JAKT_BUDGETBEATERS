@@ -53,5 +53,7 @@ interface ExpenseDao {
         endDate: String
     ): Double?
 
+    @Query("SELECT SUM(amount) FROM expenses WHERE category = :category")
+    suspend fun getTotalSpentForCategory(category: String): Float?
 
 }
