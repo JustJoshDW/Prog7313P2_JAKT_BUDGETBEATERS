@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -42,6 +43,52 @@ class CategoryIncomeActivity : AppCompatActivity() {
 
         submitBtn.setOnClickListener {
             handleSubmission()
+        }
+
+        // Set up the BottomNavigationView to handle fragment changes
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                // Logout fragment
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+
+                // Menu fragment (to show the menu UI when clicked)
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.fragment_container,
+                            Menu_NavFragment()
+                        ) // Make sure MenuFragment is created
+                        .commit()
+                    true
+                }
+
+                // Budgeting Guides fragment
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.fragment_container,
+                            BudgetingGuidesFragment()
+                        ) // Budgeting Guides fragment
+                        .commit()
+                    true
+                }
+
+                // Awards fragment
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment()) // Awards fragment
+                        .commit()
+                    true
+                }
+
+                // Default case if any item is selected that we don't have defined
+                else -> false
+            }
         }
     }
 

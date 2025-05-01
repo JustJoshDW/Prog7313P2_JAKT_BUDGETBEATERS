@@ -47,6 +47,11 @@ class Menu_NavFragment : Fragment() {
             startActivity(Intent(requireContext(), SharedBudgetingActivity::class.java))
         }
 
+
+        view.findViewById<Button>(R.id.categoriesBtn).setOnClickListener {
+            startActivity(Intent(requireContext(), CategoriesActivity::class.java))
+        }
+
         return view
     }
 }
