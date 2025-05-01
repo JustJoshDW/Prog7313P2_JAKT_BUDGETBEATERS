@@ -132,7 +132,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/white_button_border"
-        android:text="SUMBIT"
+        android:text="SUBMIT"
         android:textColor="#FF00CC"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,14 +181,14 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- 💡 Place your scrollable content here -->
-            <TextView
-                android:id="@+id/scrollContent"
-                android:layout_width="wrap_content"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/expensesRecyclerView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Scrollable content goes here..."
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
 
         </LinearLayout>
     </ScrollView>
