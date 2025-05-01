@@ -32,7 +32,8 @@ class MenuActivity : AppCompatActivity() {
         }
         binding.viewDailySpendingBtn.setOnClickListener {
 
-            startActivity(Intent(this, DailySpendingActivity::class.java))
+//            startActivity(Intent(this, DailySpendingActivity::class.java))
+            startActivity(Intent(this, ViewAllSpendingActivity::class.java))
         }
 
 
