@@ -1,33 +1,38 @@
 package com.jakt.jaktprog7313budgetbeaters
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import android.app.DatePickerDialog
-import java.util.Calendar
-import com.jakt.jaktprog7313budgetbeaters.AppDatabase
-import com.jakt.jaktprog7313budgetbeaters.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class CategoryIncomeActivity : AppCompatActivity() {
 
     private lateinit var categorySpinner: Spinner
-    private lateinit var db: AppDatabase  // Your Room database
+    private lateinit var fromDateInput: EditText
+    private lateinit var toDateInput: EditText
+    private lateinit var submitBtn: Button
+    private lateinit var totalTextView: TextView
+
+    private lateinit var db:AppDatabase
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_category_income)
+        setContentView(R.layout.activity_category_income) // Replace with your actual layout file name
 
+        // Initialize views
         categorySpinner = findViewById(R.id.categorySpinner)
-        val fromDateInput = findViewById<EditText>(R.id.FromDateInput)
-        val toDateInput = findViewById<EditText>(R.id.ToDateInput)
+        fromDateInput = findViewById(R.id.FromDateInput)
+        toDateInput = findViewById(R.id.ToDateInput)
+        submitBtn = findViewById(R.id.submitBtn)
+        totalTextView = findViewById(R.id.totalTextView)
+
         db = AppDatabase.getDatabase(this)
 
         loadCategories()
@@ -35,6 +40,9 @@ class CategoryIncomeActivity : AppCompatActivity() {
         fromDateInput.setOnClickListener { showDatePicker(fromDateInput) }
         toDateInput.setOnClickListener { showDatePicker(toDateInput) }
 
+        submitBtn.setOnClickListener {
+            handleSubmission()
+        }
     }
 
     private fun loadCategories() {
@@ -43,11 +51,10 @@ class CategoryIncomeActivity : AppCompatActivity() {
                 db.expenseDao().getAllCategories()
             }
 
-            val uniqueCategories = categories.distinct().sorted()
             val adapter = ArrayAdapter(
                 this@CategoryIncomeActivity,
                 android.R.layout.simple_spinner_item,
-                uniqueCategories
+                categories.distinct().sorted()
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             categorySpinner.adapter = adapter
@@ -69,4 +76,23 @@ class CategoryIncomeActivity : AppCompatActivity() {
         ).show()
     }
 
+    private fun handleSubmission() {
+        val selectedCategory = categorySpinner.selectedItem?.toString() ?: return
+        val fromDate = fromDateInput.text.toString()
+        val toDate = toDateInput.text.toString()
+
+        if (fromDate.isBlank() || toDate.isBlank()) {
+            Toast.makeText(this, "Please select both dates.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        lifecycleScope.launch {
+            val totalSpent = withContext(Dispatchers.IO) {
+                db.expenseDao().getTotalSpentForCategoryInRange(selectedCategory, fromDate, toDate)
+            }
+
+            val display = totalSpent?.let { "Total Spent: R%.2f".format(it) } ?: "No expenses found for this period."
+            totalTextView.text = display
+        }
+    }
 }
