@@ -44,6 +44,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this, SharedBudgetingActivity::class.java))
         }
 
+        binding.categoriesBtn.setOnClickListener {
+            startActivity(Intent(this, CategoriesActivity::class.java))
+        }
+
         // Set up the BottomNavigationView to handle fragment changes
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
