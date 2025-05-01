@@ -1,65 +1,191 @@
 package com.jakt.jaktprog7313budgetbeaters
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
+import java.io.FileOutputStream
+import java.time.LocalDate
+import java.time.temporal.TemporalAdjusters
+import java.util.*
 
 class ProgressDashboardActivity : AppCompatActivity() {
+
+    private lateinit var pieChart: PieChart
+    private lateinit var db: AppDatabase
+    private lateinit var monthSpinner: Spinner
+    private lateinit var exportButton: Button
+    private lateinit var backButton : Button
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_progress_dashboard)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Set up the BottomNavigationView to handle fragment changes
+        db = AppDatabase.getDatabase(this)
+        pieChart = findViewById(R.id.pieChart)
+        monthSpinner = findViewById(R.id.monthSpinner)
+        exportButton = findViewById(R.id.exportBtn)
+        backButton = findViewById(R.id.backBtn)
+
+        setupMonthSpinner()
+        setupBottomNavigation()
+
+        exportButton.setOnClickListener {
+            exportChartAsImage()
+        }
+
+        backButton.setOnClickListener{
+            finish()
+        }
+    }
+
+    private fun setupMonthSpinner() {
+        val months = listOf(
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        )
+
+        val adapter = ArrayAdapter(this, R.layout.spinner_item_white, months)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        monthSpinner.adapter = adapter
+
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
+        monthSpinner.setSelection(currentMonth)
+
+        monthSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedMonth = position + 1
+                val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+                setupPieChartDataForMonth(currentYear, selectedMonth)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+    }
+
+    private fun setupPieChartDataForMonth(year: Int, month: Int) {
+        lifecycleScope.launch {
+            val entries = mutableListOf<PieEntry>()
+            val colors = mutableListOf<Int>()
+
+            val startDate = "%04d-%02d-01".format(year, month)
+            val endDate = LocalDate.of(year, month, 1)
+                .with(TemporalAdjusters.lastDayOfMonth())
+                .toString()
+
+            val categorySpending = withContext(Dispatchers.IO) {
+                val allCategories = db.categoryDao().getAllCategories()
+                val spendingData = mutableListOf<Triple<String, Float, Int>>()
+
+                for (cat in allCategories) {
+                    val total = db.expenseDao()
+                        .getTotalSpentForCategoryInRange(cat.categoryName, startDate, endDate)
+                        ?: 0.0
+                    spendingData.add(Triple(cat.categoryName, total.toFloat(), cat.maxLimit))
+                }
+                spendingData
+            }
+
+            for ((name, spent, max) in categorySpending) {
+                if (max <= 0) continue
+                entries.add(PieEntry(spent, name))
+
+                val percent = (spent / max) * 100
+                when {
+                    percent < 70 -> colors.add(Color.parseColor("#4CAF50")) // Green
+                    percent in 70.0..100.0 -> colors.add(Color.parseColor("#FFC107")) // Yellow
+                    else -> colors.add(Color.parseColor("#F44336")) // Red
+                }
+            }
+
+            val dataSet = PieDataSet(entries, "")
+            dataSet.colors = colors
+            dataSet.valueTextColor = Color.WHITE
+            dataSet.valueTextSize = 14f
+
+            val pieData = PieData(dataSet)
+            pieChart.data = pieData
+            pieChart.description.isEnabled = false
+            pieChart.centerText = "Spending for ${monthSpinner.selectedItem}"
+            pieChart.setCenterTextSize(18f)
+            pieChart.setEntryLabelColor(Color.WHITE)
+            pieChart.setUsePercentValues(true)
+            pieChart.legend.isEnabled = false
+            pieChart.invalidate()
+        }
+    }
+
+    private fun exportChartAsImage() {
+        val bitmap = pieChart.chartBitmap
+        val fileName = "chart_${System.currentTimeMillis()}.png"
+        val filePath = getExternalFilesDir(null)?.absolutePath + "/" + fileName
+        val file = File(filePath)
+
+        try {
+            val outputStream = FileOutputStream(file)
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, outputStream)
+            outputStream.flush()
+            outputStream.close()
+
+            Toast.makeText(this, "Chart saved to: $filePath", Toast.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Export failed: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setupBottomNavigation() {
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
             when (item.itemId) {
-                // Logout fragment
                 R.id.Logout -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, LogoutFragment())
                         .commit()
                     true
                 }
-
-                // Menu fragment (to show the menu UI when clicked)
                 R.id.Menu -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.fragment_container,
-                            Menu_NavFragment()
-                        ) // Make sure MenuFragment is created
+                        .replace(R.id.fragment_container, Menu_NavFragment())
                         .commit()
                     true
                 }
-
-                // Budgeting Guides fragment
                 R.id.BudgetingGuides -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.fragment_container,
-                            BudgetingGuidesFragment()
-                        ) // Budgeting Guides fragment
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment())
                         .commit()
                     true
                 }
-
-                // Awards fragment
                 R.id.Awards -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, AwardsFragment()) // Awards fragment
+                        .replace(R.id.fragment_container, AwardsFragment())
                         .commit()
                     true
                 }
-
-                // Default case if any item is selected that we don't have defined
                 else -> false
             }
         }
