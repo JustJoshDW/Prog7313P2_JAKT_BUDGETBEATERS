@@ -10,28 +10,28 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="422dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_auto_awesome_motion_24" />
+        app:srcCompat="@drawable/title_banner" />
 
     <TextView
         android:id="@+id/ExpenseDetailstxt"
-        android:layout_width="401dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="ADD AN EXPENSE"
         android:textColor="@android:color/white"
-        android:textSize="48sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -198,7 +198,7 @@
         android:id="@+id/CHOOSEDATEtxt2"
         android:layout_width="331dp"
         android:layout_height="33dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="EXPENSE DETAILS"
         android:textColor="@android:color/white"
         android:textSize="20sp"

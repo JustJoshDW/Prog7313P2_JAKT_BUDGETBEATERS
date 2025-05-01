@@ -72,8 +72,20 @@ class ViewAllExpensesActivity : AppCompatActivity() {
         }
 
         // Set up the "Save" button click listener
-        binding.saveBtn2.setOnClickListener {
+        binding.AddExpenseBtn.setOnClickListener {
             startActivity(Intent(this, AddExpenseActivity::class.java))
+        }
+
+        binding.RemoveExpenseBtn.setOnClickListener{
+            startActivity(Intent(this, RemoveExpenseActivity::class.java))
+        }
+
+        binding.CatIncomeBtn.setOnClickListener{
+            startActivity(Intent(this, CategoryIncomeActivity::class.java))
+        }
+
+        binding.ViewExpenseBtn.setOnClickListener{
+            startActivity(Intent(this, ViewExpenses::class.java))
         }
     }
 }
