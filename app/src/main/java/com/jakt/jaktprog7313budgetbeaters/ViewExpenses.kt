@@ -1,6 +1,7 @@
 package com.jakt.jaktprog7313budgetbeaters
 
 import android.app.DatePickerDialog
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,9 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -30,69 +31,56 @@ class ViewExpenses : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_view_expenses)
 
+        // Handle edge-to-edge insets
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val sys = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(sys.left, sys.top, sys.right, sys.bottom)
+            insets
+        }
+
         setupViews()
         setupDatePickers()
         setupRecyclerView()
         setupButtons()
         loadAllExpenses()
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        // Set up the BottomNavigationView to handle fragment changes
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                // Logout fragment
-                R.id.Logout -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, LogoutFragment())
-                        .commit()
-                    true
+        // Bottom navigation setup
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            .setOnItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.Logout -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, LogoutFragment())
+                            .commit()
+                        true
+                    }
+                    R.id.Menu -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, Menu_NavFragment())
+                            .commit()
+                        true
+                    }
+                    R.id.BudgetingGuides -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, BudgetingGuidesFragment())
+                            .commit()
+                        true
+                    }
+                    R.id.Awards -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, AwardsFragment())
+                            .commit()
+                        true
+                    }
+                    else -> false
                 }
-
-                // Menu fragment (to show the menu UI when clicked)
-                R.id.Menu -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.fragment_container,
-                            Menu_NavFragment()
-                        ) // Make sure MenuFragment is created
-                        .commit()
-                    true
-                }
-
-                // Budgeting Guides fragment
-                R.id.BudgetingGuides -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.fragment_container,
-                            BudgetingGuidesFragment()
-                        ) // Budgeting Guides fragment
-                        .commit()
-                    true
-                }
-
-                // Awards fragment
-                R.id.Awards -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, AwardsFragment()) // Awards fragment
-                        .commit()
-                    true
-                }
-
-                // Default case if any item is selected that we don't have defined
-                else -> false
             }
-        }
     }
 
     private fun setupViews() {
         fromDateInput = findViewById(R.id.FromDateInput)
-        toDateInput = findViewById(R.id.ToDateInput)
-        recyclerView = findViewById(R.id.expensesRecyclerView)
+        toDateInput   = findViewById(R.id.ToDateInput)
+        recyclerView  = findViewById(R.id.expensesRecyclerView)
     }
 
     private fun setupRecyclerView() {
@@ -103,9 +91,9 @@ class ViewExpenses : AppCompatActivity() {
 
     private fun setupDatePickers() {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val calendar = Calendar.getInstance()
+        val calendar   = Calendar.getInstance()
 
-        val datePicker = { editText: EditText ->
+        val picker = { editText: EditText ->
             DatePickerDialog(
                 this,
                 { _, year, month, day ->
@@ -118,25 +106,23 @@ class ViewExpenses : AppCompatActivity() {
             ).show()
         }
 
-        fromDateInput.setOnClickListener { datePicker(fromDateInput) }
-        toDateInput.setOnClickListener { datePicker(toDateInput) }
+        fromDateInput.setOnClickListener { picker(fromDateInput) }
+        toDateInput.setOnClickListener   { picker(toDateInput)   }
     }
 
     private fun setupButtons() {
         findViewById<Button>(R.id.submitBtn).setOnClickListener {
             val start = fromDateInput.text.toString()
-            val end = toDateInput.text.toString()
+            val end   = toDateInput.text.toString()
 
             if (start.isEmpty() || end.isEmpty()) {
                 Toast.makeText(this, "Please select both dates", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
             if (start > end) {
                 Toast.makeText(this, "End date must be after start date", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
             filterExpenses(start, end)
         }
 
@@ -148,8 +134,8 @@ class ViewExpenses : AppCompatActivity() {
     private fun loadAllExpenses() {
         lifecycleScope.launch {
             try {
-                val database = AppDatabase.getDatabase(applicationContext)
-                allExpenses = database.expenseDao().getAllExpenses()
+                val db = AppDatabase.getDatabase(applicationContext)
+                allExpenses = db.expenseDao().getAllExpenses()
                 runOnUiThread {
                     adapter = FilteredExpenseAdapter(allExpenses)
                     recyclerView.adapter = adapter
@@ -169,35 +155,25 @@ class ViewExpenses : AppCompatActivity() {
     private fun filterExpenses(start: String, end: String) {
         lifecycleScope.launch {
             try {
-                // Get fresh data from database
-                val database = AppDatabase.getDatabase(applicationContext)
-                val allExpenses = database.expenseDao().getAllExpenses()
+                val db         = AppDatabase.getDatabase(applicationContext)
+                val expenses   = db.expenseDao().getAllExpenses()
+                val inputFmt   = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val dbFmt      = SimpleDateFormat("yyyy-M-d", Locale.getDefault())
+                val startDate  = inputFmt.parse(start)!!
+                val endDate    = inputFmt.parse(end)!!
 
-                // Create date formatters
-                val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                val dbDateFormat = SimpleDateFormat("yyyy-M-d", Locale.getDefault())
-
-                // Parse filter dates
-                val startDate = inputFormat.parse(start)!!
-                val endDate = inputFormat.parse(end)!!
-
-                // Filter expenses
-                val filtered = allExpenses.filter { expense ->
+                val filtered = expenses.filter { exp ->
                     try {
-                        val expenseDate = dbDateFormat.parse(expense.date)!!
-                        expenseDate.time in startDate.time..endDate.time
-                    } catch (e: Exception) {
+                        val expDate = dbFmt.parse(exp.date)!!
+                        expDate.time in startDate.time..endDate.time
+                    } catch (_: Exception) {
                         false
                     }
                 }
 
                 runOnUiThread {
                     if (filtered.isEmpty()) {
-                        Toast.makeText(
-                            this@ViewExpenses,
-                            "No expenses in selected range",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@ViewExpenses, "No expenses in selected range", Toast.LENGTH_SHORT).show()
                     }
                     adapter = FilteredExpenseAdapter(filtered)
                     recyclerView.adapter = adapter
