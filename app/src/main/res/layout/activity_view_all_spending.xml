@@ -1,97 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewAllSpendingActivity"
-    android:background="@drawable/marble">
+    android:background="@drawable/marble"
+    tools:context=".ViewAllSpendingActivity">
 
+    <!-- Top Banner -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="416dp"
-        android:layout_height="194dp"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
+    <!-- Title on top of Image -->
+
+    <!-- Date Filter Section -->
     <TextView
         android:id="@+id/ViewAllSpendingtxt"
-        android:layout_width="259dp"
-        android:layout_height="111dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="View all Spending"
+        android:text="View All Spending"
         android:textColor="@android:color/white"
-        android:textSize="48sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/gradientCurvedBg"
-        android:layout_width="492dp"
-        android:layout_height="669dp"
-        android:layout_marginTop="164dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gradient_curved_bg" />
+        app:layout_constraintTop_toTopOf="@id/imageView" />
 
     <TextView
-        android:id="@+id/CHOOSEDATEtxt3"
-        android:layout_width="339dp"
-        android:layout_height="49dp"
-        android:text="DAILY SPENDING OVER A TIME PERIOD"
+        android:id="@+id/fromTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="From:"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-    <ImageView
-        android:id="@+id/lineview5"
-        android:layout_width="410dp"
-        android:layout_height="10dp"
-        android:layout_marginTop="260dp"
+    <EditText
+        android:id="@+id/etFromDate"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Select date"
+        android:inputType="none"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/fromTxt"
+        app:layout_constraintStart_toEndOf="@id/fromTxt"
+        app:layout_constraintTop_toTopOf="@id/fromTxt" />
+
+    <TextView
+        android:id="@+id/toTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="To:"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/etFromDate"
+        app:layout_constraintStart_toEndOf="@id/etFromDate"
+        app:layout_constraintTop_toTopOf="@id/etFromDate" />
+
+    <EditText
+        android:id="@+id/etToDate"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Select date"
+        android:inputType="none"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/toTxt"
+        app:layout_constraintStart_toEndOf="@id/toTxt"
+        app:layout_constraintTop_toTopOf="@id/toTxt" />
+
+    <Button
+        android:id="@+id/btnFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/white_button_border"
+        android:paddingHorizontal="16dp"
+        android:text="Apply Filter"
+        android:textColor="#FF00CC"
+        app:layout_constraintBottom_toBottomOf="@id/etToDate"
+        app:layout_constraintStart_toEndOf="@id/etToDate"
+        app:layout_constraintTop_toTopOf="@id/etToDate" />
+
+    <!-- Chart Section -->
+    <TextView
+        android:id="@+id/CHOOSEDATEtxt3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="DAILY SPENDING OVER TIME PERIOD"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/white_line" />
+        app:layout_constraintTop_toBottomOf="@id/fromTxt" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barChart"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:layout_constraintTop_toBottomOf="@id/CHOOSEDATEtxt3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/CHOOSEDATEtxt3" />
 
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
