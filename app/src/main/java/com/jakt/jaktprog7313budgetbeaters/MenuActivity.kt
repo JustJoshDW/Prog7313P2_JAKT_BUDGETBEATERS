@@ -23,25 +23,65 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-
+        // Launch other activities from buttons
         binding.viewPieChartBtn.setOnClickListener {
             startActivity(Intent(this, PieChartActivity::class.java))
         }
-
         binding.viewAllExpensesBtn.setOnClickListener {
             startActivity(Intent(this, ViewAllExpensesActivity::class.java))
         }
-
         binding.viewDailySpendingBtn.setOnClickListener {
-            startActivity(Intent(this, ViewAllSpendingActivity::class.java))
+
+            startActivity(Intent(this, DailySpendingActivity::class.java))
         }
+
 
         binding.viewProgressDashboardBtn.setOnClickListener {
+ 
             startActivity(Intent(this, ProgressDashboardActivity::class.java))
         }
-
         binding.sharedBudgetingBtn.setOnClickListener {
             startActivity(Intent(this, SharedBudgetingActivity::class.java))
+        }
+
+        // Set up the BottomNavigationView to handle fragment changes
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                // Logout fragment
+                R.id.Logout -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LogoutFragment())
+                        .commit()
+                    true
+                }
+
+                // Menu fragment (to show the menu UI when clicked)
+                R.id.Menu -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Menu_NavFragment()) // Make sure MenuFragment is created
+                        .commit()
+                    true
+                }
+
+                // Budgeting Guides fragment
+                R.id.BudgetingGuides -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, BudgetingGuidesFragment()) // Budgeting Guides fragment
+                        .commit()
+                    true
+                }
+
+                // Awards fragment
+                R.id.Awards -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, AwardsFragment()) // Awards fragment
+                        .commit()
+                    true
+                }
+
+                // Default case if any item is selected that we don't have defined
+                else -> false
+            }
         }
     }
 }

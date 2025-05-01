@@ -21,6 +21,7 @@
         <activity
             android:name=".ViewAllSpendingActivity"
             android:exported="false" />
+        <activity android:name=".DailySpendingActivity" />
         <activity
             android:name=".RemoveExpenseActivity"
             android:exported="false" />
@@ -32,6 +33,9 @@
             android:exported="false" />
         <activity
             android:name=".ViewAllExpensesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgressDashboardActivity"
             android:exported="false" />
         <activity
             android:name=".RemoveCategoryActivity"

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("org.jetbrains.kotlin.kapt") // No version specified here
+
 }
 
 android {
@@ -70,4 +71,5 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.6.1")
 
     implementation (libs.mpandroidchart)
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }

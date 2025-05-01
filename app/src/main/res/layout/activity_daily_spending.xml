@@ -90,12 +90,10 @@
         android:text="SAVE SELECTION"
         android:textColor="#FF00CC"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.239"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/to2txt" />
-
 
     <Button
         android:id="@+id/saveBtn2"
@@ -106,12 +104,10 @@
         android:text="VIEW ALL DAILY SPENDING"
         android:textColor="#FF00CC"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.701"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/to2txt" />
-
 
     <EditText
         android:id="@+id/categoryDescriptionInput2"

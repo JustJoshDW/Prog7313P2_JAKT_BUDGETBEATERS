@@ -9,13 +9,14 @@
     android:background="@drawable/marble">
 
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="414dp"
         android:layout_height="279dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
@@ -48,9 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
 <!--    recycler view here-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -63,92 +61,5 @@
         app:labelVisibilityMode="labeled"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="380dp"
-        android:layout_height="522dp"
-        android:src="@drawable/blue_square"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="217dp" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="326dp"
-        android:layout_height="517dp"
-        android:src="@drawable/white_banner"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="107dp" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="584dp"
-        android:layout_height="810dp"
-        android:src="@drawable/golden_border"
-        tools:layout_editor_absoluteX="-98dp"
-        tools:layout_editor_absoluteY="150dp" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="326dp"
-        android:layout_height="517dp"
-        android:src="@drawable/white_banner"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="198dp" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="326dp"
-        android:layout_height="517dp"
-        android:src="@drawable/white_banner"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="297dp" />
-
-
-    <Button
-        android:id="@+id/GrocButton"
-        android:layout_width="149dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Groceries"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.335"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="338dp" />
-
-    <Button
-        android:id="@+id/EntertainmentButton"
-        android:layout_width="172dp"
-        android:layout_height="58dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Entertainment"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.368"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="426dp" />
-
-    <Button
-        android:id="@+id/TransportButton"
-        android:layout_width="172dp"
-        android:layout_height="58dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Transport"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="528dp" />
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
