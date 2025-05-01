@@ -86,7 +86,7 @@ class AddExpenseActivity : AppCompatActivity() {
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
             val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-                val formattedDate = "${selectedYear}-${selectedMonth + 1}-${selectedDay}"
+                val formattedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay)
                 binding.DATEInput.setText(formattedDate)
             }, year, month, day)
 

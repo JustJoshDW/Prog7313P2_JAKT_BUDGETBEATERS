@@ -124,31 +124,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Action buttons -->
     <Button
-        android:id="@+id/ConfirmDelBtn"
-        android:layout_width="91dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/neon_blue_button"
-        android:text="Remove Expense"
-        android:textColor="@android:color/black"
-        android:textSize="8sp"
+        android:id="@+id/categoriesBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/pastel_green_blue_gradient"
+        android:backgroundTint="@null"
+        android:text="CATEGORIES"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/sharedBudgetingBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/CancelDelBtn" />
-
-    <Button
-        android:id="@+id/CancelDelBtn"
-        android:layout_width="91dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/neon_pink_button"
-        android:text="Add Expense"
-        android:textColor="@android:color/black"
-        android:textSize="8sp"
-        app:layout_constraintTop_toBottomOf="@id/sharedBudgetingBtn"
-        app:layout_constraintStart_toEndOf="@id/ConfirmDelBtn"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
