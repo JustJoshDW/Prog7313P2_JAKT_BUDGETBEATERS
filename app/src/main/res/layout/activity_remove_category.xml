@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RemoveCategoryActivity"
-    android:background="@drawable/marble">
+    android:background="@drawable/bb_marble">
 
     <!-- This is the root container for the layout, which includes a background and various UI elements -->
     <androidx.constraintlayout.widget.ConstraintLayout

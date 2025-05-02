@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewAllExpensesActivity"
-    android:background="@drawable/marble">
+    android:background="@drawable/bb_marble">
 
     <!-- Image for the header with a squiggle design -->
     <ImageView

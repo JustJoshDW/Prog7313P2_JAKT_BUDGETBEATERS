@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ForgotPassActivity"
-    android:background="@drawable/marble">
+    android:background="@drawable/bb_marble">
 
     <!-- Decorative image at the top of the screen -->
     <ImageView
