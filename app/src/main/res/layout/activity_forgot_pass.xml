@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Root ConstraintLayout containing all UI components -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +9,7 @@
     tools:context=".ForgotPassActivity"
     android:background="@drawable/marble">
 
+    <!-- Decorative image at the top of the screen -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
@@ -18,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
+    <!-- Title text for "Forgot Password" screen -->
     <TextView
         android:id="@+id/ForgotPasstxt"
         android:text="FORGOT PASSWORD"
@@ -33,6 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Background curved gradient image for styling -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
@@ -44,6 +48,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <!-- Input field where user enters their email -->
     <EditText
         android:id="@+id/createEmailInput"
         android:layout_width="189dp"
@@ -58,6 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
+    <!-- Instructional text for email input -->
     <TextView
         android:id="@+id/emailTxt"
         android:layout_width="250dp"
@@ -72,6 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
+    <!-- Decorative line image below email instructions -->
     <ImageView
         android:id="@+id/lineView"
         android:layout_width="410dp"
@@ -83,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@id/emailTxt"
         app:srcCompat="@drawable/white_line" />
 
+    <!-- Button to submit the email for password reset -->
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="189dp"
@@ -96,6 +104,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/createEmailInput" />
 
+    <!-- Confirmation or reminder message about email verification -->
     <TextView
         android:id="@+id/alreadyRegisteredtxt"
         android:layout_width="254dp"
@@ -109,6 +118,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
+    <!-- Prompt asking if user remembers their password -->
     <TextView
         android:id="@+id/RememberPasswordtTxt"
         android:layout_width="175dp"
@@ -123,6 +133,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/alreadyRegisteredtxt" />
 
+    <!-- Button to navigate user back to login screen -->
     <Button
         android:id="@+id/LoginBtn"
         android:layout_width="189dp"
