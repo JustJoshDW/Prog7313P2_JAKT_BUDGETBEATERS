@@ -33,7 +33,6 @@
         <activity
             android:name=".ViewAllSpendingActivity"
             android:exported="false" />
-        <activity android:name=".DailySpendingActivity" />
         <activity
             android:name=".RemoveExpenseActivity"
             android:exported="false" />

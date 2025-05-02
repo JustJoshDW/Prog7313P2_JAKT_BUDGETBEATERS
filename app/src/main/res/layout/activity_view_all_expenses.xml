@@ -46,12 +46,14 @@
 
     <TextView
         android:id="@+id/CHOOSEDATEtxt"
-        android:layout_width="331dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="315dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
         android:text="PLEASE CHOOSE ONE OF THE BELOW:"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />

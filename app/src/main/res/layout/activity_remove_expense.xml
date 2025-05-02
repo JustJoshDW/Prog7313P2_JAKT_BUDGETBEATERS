@@ -46,6 +46,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <TextView
+        android:id="@+id/SelectExpense"
+        android:layout_width="331dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="SELECT YOUR EXPENSE"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
+
+    <ImageView
+        android:id="@+id/lineView"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SelectExpense"
+        app:srcCompat="@drawable/white_line" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/expensesRecyclerView"
@@ -57,14 +82,14 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RemoveExpensetxt"
+        app:layout_constraintTop_toBottomOf="@id/lineView"
         app:layout_constraintVertical_bias="0.197" />
 
     <Button
         android:id="@+id/Exit"
         android:layout_width="106dp"
         android:layout_height="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/white_button_border"
         android:text="BACK"
         android:textColor="#66BB6A"
@@ -73,17 +98,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/expensesRecyclerView" />
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
