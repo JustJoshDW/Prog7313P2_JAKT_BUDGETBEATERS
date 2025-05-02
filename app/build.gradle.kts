@@ -76,4 +76,13 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+
+    // Testing dependencies
+    testImplementation("org.mockito:mockito-core:4.6.1")
+    testImplementation("org.mockito:mockito-android:4.6.1")
+    testImplementation("androidx.test.ext:junit:1.1.3")
+    testImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+
 }
