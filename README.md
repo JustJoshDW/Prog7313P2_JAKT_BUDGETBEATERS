@@ -254,6 +254,19 @@ Troubleshooting Tips
     •	Gradle Build Issues: Go to File > Invalidate Caches / Restart if the project fails to sync.
     •	Missing Dependencies: Ensure you have a stable internet connection to download libraries.
     •	Emulator Errors: Make sure Intel HAXM is installed or try using a different device image.
+References
+
+	•  Android Developers. (2019). Accessing data using Room DAOs | Android Developers. [online] Available at: https://developer.android.com/training/data-storage/room/accessing-data
+	•  Android Developers. (2020). Defining data using Room entities | Android Developers. [online] Available at: https://developer.android.com/training/data-storage/room/defining-data
+	•  Android Developers. (2024). Download Android Studio & App Tools - Android Developers. [online] Available at: https://developer.android.com/studio [Accessed 2 May 2025].
+	•  Android Developers. (n.d.). Fragment. [online] Available at: https://developer.android.com/reference/android/app/Fragment
+	•  Android Developers. (2025). Generated binding classes. [online] Available at: https://developer.android.com/topic/libraries/data-binding/generated-binding [Accessed 2 May 2025].
+	•  Chernozubov, D. (2020). Recycler view, power of asynchronous view holders creation. [online] Medium. Available at: https://medium.com/@icesrgt/recycler-view-power-of-asynchronous-view-holders-creation-b3c9fe067702 [Accessed 2 May 2025].
+	•  freeCodeCamp.org. (2024). How to Use Git and GitHub – a Guide for Beginners and Experienced Developers. [online] Available at: https://www.freecodecamp.org/news/guide-to-git-github-for-beginners-and-experienced-devs/
+	•  GitHub. (2025). GitHub. [online] Available at: https://github.com/
+	•  hangyuan. (2021). Understanding Java volatile visibility. [online] Stack Overflow. Available at: https://stackoverflow.com/questions/68427434/understanding-java-volatile-visibility
+	•  OpenAI. (2025). ChatGPT. [online] Available at: https://chatgpt.com/
+
 
 Done by:
 
