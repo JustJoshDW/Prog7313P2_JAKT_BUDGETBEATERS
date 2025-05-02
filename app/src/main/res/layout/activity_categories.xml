@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CategoriesActivity"
-    android:background="@drawable/marble">
+    android:background="@drawable/bb_marble">
 
     <!-- Top decorative squiggle image -->
     <ImageView
