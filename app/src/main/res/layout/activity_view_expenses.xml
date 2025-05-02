@@ -8,6 +8,7 @@
     android:background="@drawable/marble"
     tools:context=".ViewExpenses">
 
+    <!-- ImageView for the header image, centered at the top -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -18,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
+    <!-- TextView for the title "VIEW EXPENSES" -->
     <TextView
         android:id="@+id/ViewExpenses"
         android:layout_width="250dp"
@@ -34,6 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Background image with a gradient curve, positioned under the title -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
@@ -45,7 +48,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
-
+    <!-- TextView prompting user to choose a date -->
     <TextView
         android:id="@+id/ChooseDateTxt"
         android:layout_width="331dp"
@@ -59,6 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
+    <!-- Horizontal line below the date selection text -->
     <ImageView
         android:id="@+id/lineView"
         android:layout_width="397dp"
@@ -70,6 +74,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
+    <!-- TextView label for "FROM:" date selection -->
     <TextView
         android:id="@+id/fromTxt"
         android:layout_width="155dp"
@@ -83,6 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ChooseDateTxt" />
 
+    <!-- EditText for selecting the "FROM" date -->
     <EditText
         android:id="@+id/FromDateInput"
         android:layout_width="175dp"
@@ -98,6 +104,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fromTxt" />
 
+    <!-- TextView label for "TO:" date selection -->
     <TextView
         android:id="@+id/toTxt"
         android:layout_width="155dp"
@@ -111,6 +118,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ChooseDateTxt" />
 
+    <!-- EditText for selecting the "TO" date -->
     <EditText
         android:id="@+id/ToDateInput"
         android:layout_width="175dp"
@@ -126,6 +134,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toTxt" />
 
+    <!-- Submit button for the user to submit the date range -->
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="125dp"
@@ -139,6 +148,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toTxt" />
 
+    <!-- Button to view all expenses -->
     <Button
         android:id="@+id/ViewAllBtn"
         android:layout_width="249dp"
@@ -152,6 +162,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
+    <!-- TextView indicating an "OR" option for alternate actions -->
     <TextView
         android:id="@+id/orTxt"
         android:layout_width="75dp"
@@ -165,6 +176,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
+    <!-- ScrollView containing a RecyclerView for listing expenses -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
@@ -181,7 +193,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-
+            <!-- RecyclerView for displaying a list of expenses -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/expensesRecyclerView"
                 android:layout_width="match_parent"
@@ -189,10 +201,10 @@
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-
         </LinearLayout>
     </ScrollView>
 
+    <!-- FrameLayout to hold any fragment content -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -204,6 +216,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- BottomNavigationView for the app's bottom navigation menu -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"

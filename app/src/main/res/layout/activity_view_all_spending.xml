@@ -9,7 +9,7 @@
     android:background="@drawable/marble"
     tools:context=".ViewAllSpendingActivity">
 
-    <!-- Top Banner -->
+    <!-- Top Banner ImageView -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
+    <!-- Gradient Curved Background ImageView -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
@@ -31,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <!-- Main Title TextView: View Daily Spending -->
     <TextView
         android:id="@+id/ViewAllSpendingtxt"
         android:layout_width="0dp"
@@ -47,6 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/imageView" />
 
+    <!-- Time Period Selection TextView -->
     <TextView
         android:id="@+id/ChooseTxt"
         android:layout_width="331dp"
@@ -61,6 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
+    <!-- From Date Label TextView -->
     <TextView
         android:id="@+id/fromTxt"
         android:layout_width="wrap_content"
@@ -73,6 +77,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
+    <!-- From Date EditText (Date Picker) -->
     <EditText
         android:id="@+id/etFromDate"
         android:layout_width="120dp"
@@ -86,18 +91,20 @@
         app:layout_constraintStart_toEndOf="@id/fromTxt"
         app:layout_constraintTop_toTopOf="@id/fromTxt" />
 
+    <!-- To Date Label TextView -->
     <TextView
         android:id="@+id/toTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="T0:"
+        android:text="TO:"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/etFromDate"
         app:layout_constraintStart_toEndOf="@id/etFromDate"
         app:layout_constraintTop_toTopOf="@id/etFromDate" />
 
+    <!-- To Date EditText (Date Picker) -->
     <EditText
         android:id="@+id/etToDate"
         android:layout_width="120dp"
@@ -111,8 +118,7 @@
         app:layout_constraintStart_toEndOf="@id/toTxt"
         app:layout_constraintTop_toTopOf="@id/toTxt" />
 
-    <!-- Chart Section -->
-
+    <!-- Apply Button for Filter -->
     <Button
         android:id="@+id/btnFilter"
         android:layout_width="90dp"
@@ -127,7 +133,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toTxt" />
 
-
+    <!-- Title TextView for Spending Over Time -->
     <TextView
         android:id="@+id/CHOOSEDATEtxt3"
         android:layout_width="0dp"
@@ -143,6 +149,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fromTxt" />
 
+    <!-- Bar Chart for Displaying Spending Data -->
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barChart"
         android:layout_width="0dp"
@@ -154,6 +161,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CHOOSEDATEtxt3" />
 
+    <!-- Fragment Container for Dynamic Content -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -165,6 +173,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Bottom Navigation Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"

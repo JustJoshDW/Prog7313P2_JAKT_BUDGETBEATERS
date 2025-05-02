@@ -8,6 +8,7 @@
     tools:context=".ViewAllExpensesActivity"
     android:background="@drawable/marble">
 
+    <!-- Image for the header with a squiggle design -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -18,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
+    <!-- Title text for the activity -->
     <TextView
         android:id="@+id/ViewAllExpensestxt"
         android:layout_width="273dp"
@@ -33,6 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Curved background image -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
@@ -44,6 +47,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <!-- Text prompting the user to choose an option -->
     <TextView
         android:id="@+id/CHOOSEDATEtxt"
         android:layout_width="315dp"
@@ -58,6 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
+    <!-- White horizontal line for separation -->
     <ImageView
         android:id="@+id/lineview3"
         android:layout_width="410dp"
@@ -69,6 +74,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
+    <!-- Button to add an expense -->
     <Button
         android:id="@+id/AddExpenseBtn"
         android:layout_width="244dp"
@@ -83,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lineview3" />
 
+    <!-- Button to remove an expense -->
     <Button
         android:id="@+id/RemoveExpenseBtn"
         android:layout_width="249dp"
@@ -97,6 +104,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/AddExpenseBtn" />
 
+    <!-- Button to view all expenses -->
     <Button
         android:id="@+id/ViewExpenseBtn"
         android:layout_width="249dp"
@@ -111,6 +119,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/RemoveExpenseBtn" />
 
+    <!-- Button to view income by categories -->
     <Button
         android:id="@+id/CatIncomeBtn"
         android:layout_width="249dp"
@@ -125,6 +134,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ViewExpenseBtn" />
 
+    <!-- Placeholder for fragment container -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -136,6 +146,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Bottom navigation bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
