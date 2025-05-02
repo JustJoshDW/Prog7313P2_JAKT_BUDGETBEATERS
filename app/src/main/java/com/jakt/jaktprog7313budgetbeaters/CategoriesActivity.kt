@@ -1,6 +1,8 @@
 package com.jakt.jaktprog7313budgetbeaters
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,6 +31,17 @@ class CategoriesActivity : AppCompatActivity() {
             insets
         }
 
+        findViewById<Button>(R.id.btnAddCategory).setOnClickListener {
+            startActivity(Intent(this, AddCategoryActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btnDeleteCategory).setOnClickListener {
+            startActivity(Intent(this, RemoveCategoryActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.backBtn).setOnClickListener {
+            finish()
+        }
         setupBottomNav()
     }
 
@@ -49,6 +62,12 @@ class CategoriesActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
+
+
+
 
     private fun setupBottomNav() {
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
