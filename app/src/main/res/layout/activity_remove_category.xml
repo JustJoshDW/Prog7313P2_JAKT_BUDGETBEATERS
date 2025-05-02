@@ -8,11 +8,12 @@
     tools:context=".RemoveCategoryActivity"
     android:background="@drawable/marble">
 
-    <!-- This is the root container without the scrollable view -->
+    <!-- This is the root container for the layout, which includes a background and various UI elements -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Image view for a decorative element (black squiggle) -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="413dp"
@@ -22,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/black_squiggle" />
 
+        <!-- Main title for the activity, prominently displays "REMOVE A CATEGORY" -->
         <TextView
             android:id="@+id/RemoveCategoryTxt"
             android:layout_width="273dp"
@@ -37,6 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Decorative gradient curved background image -->
         <ImageView
             android:id="@+id/gradientCurvedBg"
             android:layout_width="492dp"
@@ -48,6 +51,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/gradient_curved_bg" />
 
+        <!-- Subtitle text asking the user to select a category to remove -->
         <TextView
             android:id="@+id/Title"
             android:layout_width="300dp"
@@ -63,6 +67,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/RemoveCategoryTxt" />
 
+        <!-- White line separating the title and the category selection -->
         <ImageView
             android:id="@+id/lineView"
             android:layout_width="410dp"
@@ -74,6 +79,7 @@
             app:layout_constraintTop_toBottomOf="@id/Title"
             app:srcCompat="@drawable/white_line" />
 
+        <!-- Spinner for selecting a category from available options -->
         <Spinner
             android:id="@+id/categoriesSpinner"
             android:layout_width="200dp"
@@ -85,6 +91,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lineView" />
 
+        <!-- White line separating the category spinner and the confirmation text -->
         <ImageView
             android:id="@+id/lineView2"
             android:layout_width="410dp"
@@ -96,6 +103,7 @@
             app:layout_constraintTop_toBottomOf="@id/categoriesSpinner"
             app:srcCompat="@drawable/white_line" />
 
+        <!-- Confirmation text asking the user if they are sure about removing the category -->
         <TextView
             android:id="@+id/RemoveCategoryCONFIRMtxt"
             android:layout_width="312dp"
@@ -110,6 +118,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lineView2" />
 
+        <!-- "Yes" button to confirm category removal -->
         <Button
             android:id="@+id/ConfirmDelBtn"
             android:layout_width="106dp"
@@ -123,6 +132,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/RemoveCategoryCONFIRMtxt" />
 
+        <!-- "No" button to cancel the category removal -->
         <Button
             android:id="@+id/CancelDelBtn"
             android:layout_width="106dp"
@@ -136,6 +146,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/RemoveCategoryCONFIRMtxt" />
 
+        <!-- Container for fragments (if any are used in the activity) -->
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="0dp"
@@ -147,6 +158,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
+        <!-- Bottom navigation bar with menu items -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="0dp"

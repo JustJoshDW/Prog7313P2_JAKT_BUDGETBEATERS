@@ -8,6 +8,7 @@
     tools:context=".RegisterActivity"
     android:background="@drawable/marble">
 
+    <!-- Image at the top of the layout (Logo or graphic) -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="400dp"
@@ -17,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
+    <!-- Main header text for registration -->
     <TextView
         android:id="@+id/Registertxt"
         android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Curved gradient background for the registration section -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
@@ -42,6 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <!-- Welcome text for creating a new account -->
     <TextView
         android:id="@+id/RegWelcomeTxt"
         android:layout_width="275dp"
@@ -56,6 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
+    <!-- Line separator between the welcome text and form fields -->
     <ImageView
         android:id="@+id/lineView"
         android:layout_width="410dp"
@@ -67,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/RegWelcomeTxt"
         app:srcCompat="@drawable/white_line" />
 
+    <!-- Label for 'Name' input field -->
     <TextView
         android:id="@+id/RegisterNametxt"
         android:layout_width="wrap_content"
@@ -79,6 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2" />
 
+    <!-- Input field for entering the name -->
     <EditText
         android:id="@+id/CreateNameInput"
         android:layout_width="190dp"
@@ -94,6 +101,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Label for 'Email' input field -->
     <TextView
         android:id="@+id/Emailtxt"
         android:layout_width="wrap_content"
@@ -106,6 +114,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CreateNameInput" />
 
+    <!-- Input field for entering email -->
     <EditText
         android:id="@+id/CreateEmailInput"
         android:layout_width="189dp"
@@ -121,6 +130,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Label for 'Password' input field -->
     <TextView
         android:id="@+id/Passwordtxt"
         android:layout_width="wrap_content"
@@ -133,6 +143,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CreateEmailInput" />
 
+    <!-- Input field for entering password -->
     <EditText
         android:id="@+id/CreatePasswordInput"
         android:layout_width="189dp"
@@ -148,6 +159,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Label for 'Confirm Password' input field -->
     <TextView
         android:id="@+id/ConfirmPasswordtxt"
         android:layout_width="wrap_content"
@@ -160,6 +172,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CreatePasswordInput" />
 
+    <!-- Input field for confirming password -->
     <EditText
         android:id="@+id/confirmPasswordInput"
         android:layout_width="189dp"
@@ -175,6 +188,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Sign-up button -->
     <Button
         android:id="@+id/SignUpBtn"
         android:layout_width="189dp"
@@ -188,6 +202,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmPasswordInput" />
 
+    <!-- Bottom separator line -->
     <ImageView
         android:id="@+id/bottomLineView"
         android:layout_width="410dp"
@@ -199,7 +214,7 @@
         app:layout_constraintTop_toBottomOf="@id/SignUpBtn"
         app:srcCompat="@drawable/white_line" />
 
-
+    <!-- Text for users already registered -->
     <TextView
         android:id="@+id/AlreadyRegisteredtxt"
         android:layout_width="175dp"
@@ -214,6 +229,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/SignUpBtn" />
 
+    <!-- Login button for already registered users -->
     <Button
         android:id="@+id/LoginBtn"
         android:layout_width="189dp"

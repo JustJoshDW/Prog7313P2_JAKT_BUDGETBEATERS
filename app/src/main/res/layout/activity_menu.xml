@@ -8,7 +8,7 @@
     android:background="@drawable/marble"
     tools:context=".MenuActivity">
 
-    <!-- Top banner -->
+    <!-- Top banner image that spans the top of the screen -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/black_squiggle" />
 
-    <!-- Curved background decoration -->
+    <!-- Background curved decorative image to enhance UI -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/gradient_curved_bg"
         android:translationZ="-1dp" />
 
-    <!-- Title Text -->
+    <!-- Title text for the Menu screen -->
     <TextView
         android:id="@+id/Menutxt"
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="80dp" />
 
-    <!-- Buttons -->
+    <!-- Button to navigate to Pie Chart screen -->
     <Button
         android:id="@+id/viewPieChartBtn"
         android:layout_width="225dp"
@@ -65,6 +65,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to view all recorded expenses -->
     <Button
         android:id="@+id/viewAllExpensesBtn"
         android:layout_width="225dp"
@@ -80,6 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to view daily spending summary -->
     <Button
         android:id="@+id/viewDailySpendingBtn"
         android:layout_width="225dp"
@@ -95,6 +97,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to view overall financial progress dashboard -->
     <Button
         android:id="@+id/viewProgressDashboardBtn"
         android:layout_width="225dp"
@@ -110,6 +113,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to manage shared budgeting options -->
     <Button
         android:id="@+id/sharedBudgetingBtn"
         android:layout_width="225dp"
@@ -125,6 +129,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Button to view or edit budget categories -->
     <Button
         android:id="@+id/categoriesBtn"
         android:layout_width="225dp"
@@ -140,6 +145,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Placeholder container for dynamically loaded fragments -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -149,6 +155,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Bottom navigation bar for navigating between major screens -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
