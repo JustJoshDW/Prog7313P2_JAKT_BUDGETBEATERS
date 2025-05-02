@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Root ConstraintLayout container for the entire screen -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,8 +9,7 @@
     tools:context=".ProgressDashboardActivity"
     android:background="@drawable/bb_marble">
 
-    <!-- Background and Decorative Images -->
-
+    <!-- Decorative title banner at the top -->
     <ImageView
         android:id="@+id/titleBg"
         android:layout_width="wrap_content"
@@ -21,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title_banner" />
 
+    <!-- Page title text -->
     <TextView
         android:id="@+id/ProgressDashboardtxt"
         android:layout_width="250dp"
@@ -37,6 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Curved background image for styling -->
     <ImageView
         android:id="@+id/gradientCurvedBg"
         android:layout_width="492dp"
@@ -48,6 +50,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gradient_curved_bg" />
 
+    <!-- Horizontal divider line -->
     <ImageView
         android:id="@+id/lineView8"
         android:layout_width="410dp"
@@ -59,6 +62,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
+    <!-- Vertical rotated line for visual division -->
     <ImageView
         android:id="@+id/lineview7"
         android:layout_width="wrap_content"
@@ -71,9 +75,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
-    <!-- Month Dropdown -->
-
-
+    <!-- Horizontal divider line below the dropdown -->
     <ImageView
         android:id="@+id/lineview6"
         android:layout_width="410dp"
@@ -85,6 +87,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_line" />
 
+    <!-- Label for month selection -->
     <TextView
         android:id="@+id/monthTitle"
         android:layout_width="331dp"
@@ -100,6 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
+    <!-- Spinner for selecting a month -->
     <Spinner
         android:id="@+id/monthSpinner"
         android:layout_width="150dp"
@@ -115,6 +119,7 @@
         app:layout_constraintTop_toBottomOf="@id/monthTitle"
         app:layout_constraintVertical_bias="1.0" />
 
+    <!-- Pie chart to display budget/progress statistics -->
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="315dp"
@@ -125,9 +130,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lineview6"
         app:layout_constraintVertical_bias="0.0">
-
     </com.github.mikephil.charting.charts.PieChart>
 
+    <!-- Button to export data -->
     <Button
         android:id="@+id/exportBtn"
         android:layout_width="wrap_content"
@@ -140,6 +145,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lineView8" />
 
+    <!-- Button to navigate back -->
     <Button
         android:id="@+id/backBtn"
         android:layout_width="wrap_content"
@@ -152,6 +158,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/exportBtn" />
 
+    <!-- Green circle legend for "Under Budget" -->
     <View
         android:id="@+id/greenCircle"
         android:layout_width="40dp"
@@ -162,6 +169,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lineView8" />
 
+    <!-- Yellow circle legend for "Approaching Limit" -->
     <View
         android:id="@+id/yellowCircle"
         android:layout_width="40dp"
@@ -172,6 +180,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/greenCircle" />
 
+    <!-- Red circle legend for "Over Budget" -->
     <View
         android:id="@+id/redCircle"
         android:layout_width="40dp"
@@ -182,6 +191,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/yellowCircle" />
 
+    <!-- Label for green circle: Under Budget -->
     <TextView
         android:id="@+id/UnderBudget"
         android:layout_width="150dp"
@@ -196,6 +206,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/lineView8" />
 
+    <!-- Label for yellow circle: Approaching the Limit -->
     <TextView
         android:id="@+id/ApproachingLimit"
         android:layout_width="150dp"
@@ -210,6 +221,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/UnderBudget" />
 
+    <!-- Label for red circle: Over Budget -->
     <TextView
         android:id="@+id/overBudget"
         android:layout_width="150dp"
@@ -224,6 +236,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/ApproachingLimit" />
 
+    <!-- Placeholder for hosting fragments above the navigation bar -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
@@ -233,6 +246,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Bottom navigation bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
@@ -243,4 +257,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
