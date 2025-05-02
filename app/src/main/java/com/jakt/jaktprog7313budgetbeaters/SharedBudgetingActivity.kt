@@ -1,5 +1,6 @@
 package com.jakt.jaktprog7313budgetbeaters
 
+// Import required Android and lifecycle libraries
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -17,35 +18,39 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 class SharedBudgetingActivity : AppCompatActivity() {
-    private lateinit var membersContainer: LinearLayout
-    private lateinit var memberCountInput: EditText
-    private lateinit var submitButton: Button
-    private lateinit var database: AppDatabase
-    private var currentUserId: Int = -1
+    private lateinit var membersContainer: LinearLayout  // Container for member input fields
+    private lateinit var memberCountInput: EditText      // Input field for number of members
+    private lateinit var submitButton: Button            // Button to submit members
+    private lateinit var database: AppDatabase           // App database instance
+    private var currentUserId: Int = -1                  // Stores logged-in user's ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_shared_budgeting)
 
+        // Initialize views and database
         database = AppDatabase.getDatabase(this)
         membersContainer = findViewById(R.id.membersContainer)
         memberCountInput = findViewById(R.id.memberCountInput)
         submitButton = findViewById(R.id.submitButton)
 
+        // Setup listeners and data
         setupNumberInputListener()
         setupSubmitButton()
         loadCurrentUser()
 
+        // Handle edge-to-edge window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        setupBottomNav()
+        setupBottomNav() // Initialize bottom navigation
     }
 
+    // Loads the currently logged-in user's ID from shared preferences
     private fun loadCurrentUser() {
         val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         val username = sharedPref.getString("logged_in_user", "") ?: ""
@@ -62,12 +67,13 @@ class SharedBudgetingActivity : AppCompatActivity() {
                         "User not logged in!",
                         Toast.LENGTH_SHORT
                     ).show()
-                    finish()
+                    finish() // Close activity if no user is logged in
                 }
             }
         }
     }
 
+    // Loads and displays shared users previously saved for the current user
     private fun loadExistingSharedUsers() {
         lifecycleScope.launch {
             val sharedUsers = database.sharedUserDao().getSharedUsersByOwner(currentUserId)
@@ -82,6 +88,7 @@ class SharedBudgetingActivity : AppCompatActivity() {
         }
     }
 
+    // Listens for changes in the member count input to dynamically update UI
     private fun setupNumberInputListener() {
         memberCountInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -92,6 +99,7 @@ class SharedBudgetingActivity : AppCompatActivity() {
         })
     }
 
+    // Updates the number of member input fields based on the entered count
     private fun updateMemberFields() {
         val memberCount = memberCountInput.text.toString().toIntOrNull() ?: 0
         membersContainer.removeAllViews()
@@ -103,6 +111,7 @@ class SharedBudgetingActivity : AppCompatActivity() {
         }
     }
 
+    // Adds input fields for a member's name and email
     private fun addMemberInputFields(memberNumber: Int, name: String = "", email: String = "") {
         val nameEditText = EditText(this).apply {
             hint = "Member $memberNumber Name"
@@ -139,7 +148,7 @@ class SharedBudgetingActivity : AppCompatActivity() {
         membersContainer.addView(emailEditText)
     }
 
-
+    // Handles submission of shared members to the database
     private fun setupSubmitButton() {
         submitButton.setOnClickListener {
             if (currentUserId == -1) {
@@ -169,9 +178,12 @@ class SharedBudgetingActivity : AppCompatActivity() {
                 members.add(Pair(name, email))
             }
 
+            // Save members to the database using a coroutine
             lifecycleScope.launch {
+                // Remove previous shared users
                 database.sharedUserDao().deleteSharedUsersForOwner(currentUserId)
 
+                // Insert new shared user records
                 members.forEach { (name, email) ->
                     database.sharedUserDao().insertSharedUser(
                         SharedUserEntity(
@@ -193,8 +205,10 @@ class SharedBudgetingActivity : AppCompatActivity() {
         }
     }
 
+    // Extension function to convert dp values to pixels
     private fun Int.dpToPx(): Int = (this * resources.displayMetrics.density).toInt()
 
+    // Sets up the bottom navigation bar and its fragment actions
     private fun setupBottomNav() {
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
             when (item.itemId) {

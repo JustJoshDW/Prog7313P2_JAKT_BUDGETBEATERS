@@ -18,22 +18,25 @@ private const val ARG_PARAM2 = "param2"
  */
 class AwardsFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var param1: String? = null // Parameter 1
+    private var param2: String? = null // Parameter 2
 
+    // Called when the fragment is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Retrieve the arguments passed to the fragment
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            param1 = it.getString(ARG_PARAM1) // Get parameter 1
+            param2 = it.getString(ARG_PARAM2) // Get parameter 2
         }
     }
 
+    // Called to inflate the fragment's layout
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment (fragment_awards.xml)
         return inflater.inflate(R.layout.fragment_awards, container, false)
     }
 
@@ -50,9 +53,10 @@ class AwardsFragment : Fragment() {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             AwardsFragment().apply {
+                // Create a new Bundle to pass parameters
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, param1) // Put param1 into the Bundle
+                    putString(ARG_PARAM2, param2) // Put param2 into the Bundle
                 }
             }
     }
