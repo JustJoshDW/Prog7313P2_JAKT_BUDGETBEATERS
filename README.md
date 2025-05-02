@@ -1,9 +1,15 @@
 
 Budget Beaters
 Budget Beaters is a user-friendly financial tracking Android app that helps users manage and monitor their daily expenses, categorize spending, visualize finances using pie and bar charts, track progress through dashboards, and earn badges for reaching financial milestones.
+Done by:
 
+    - Joshua de Wet - ST10313014
+    - Ankriya Padayachee - ST10260507
+    - Kyle Govender - ST10145498
+    - Teagan Griffiths - ST10300913
 
 GitHub Repository: Budget Beaters
+YouTube Video Link: https://youtu.be/sF7Y3G2iEmk
 
 
 Key Features
@@ -15,6 +21,26 @@ Key Features
     •	 Shared Budgeting: Add members to budget together, inputting names and emails to collaborate.
     •	 Account & Navigation: Register/Login, reset forgotten passwords, and navigate easily through a modern swipe-based UI.
     •	 Info Centre: Access guides and tips to manage finances effectively.
+
+Additional Features (Part 1)
+   
+    •Shared Budgeting: By allowing family members or friends to join in shared budgets, Budget Beaters enables users to manage group money in addition to managing individual spending. By enabling many users 
+     to contribute and track spending in a single, consolidated view, this collaboration tool helps shared financial objectives like managing household expenses or saving for a group vacation. (YNAB, 2025) 
+      (PocketGuard, 2024)
+      
+    •Exportable Reports: Budget Beaters provides the option to export comprehensive reports in both PDF and CSV formats for users who need to examine or distribute their financial history. With their graphic 
+      charts and categorised summaries, these exportable reports make it simple to interface with other financial tools or review data offline. Moreover, these reports offer an extensive record of budgeting and 
+      expenditure developments in an easily readable and appealing manner. (YNAB, 2025) (Goodbudget, 2019)
+
+    •Budgeting Guide: The software includes a thorough budgeting tutorial to help users improve their financial literacy. From fundamental budgeting methods and financial planning tactics to sophisticated 
+      advice for cutting costs and boosting savings, this resource covers a wide range of subjects. With its interactive and contextual design, the guide provides users with real-world examples, best practices, 
+      and step-by-step tutorials that they can utilise right within the app.’ (YNAB, 2025) (Goodbudget, 2019)
+
+    •Budget Pie Chart: The budget pie chart, a crucial visual component of the progress dashboard, provides an easy-to-understand, category-by-category summary of spending. Users can easily comprehend how 
+     their money is distributed among several spending categories, such as grocery, utilities, or entertainment, because of this user-friendly graphic. Furthermore, fast and efficient decision-making is 
+     supported by the design, which guarantees that even complex financial data is displayed in an easily comprehensible style.
+ 
+
 
 Technologies & Dependencies:
 
@@ -256,22 +282,27 @@ Troubleshooting Tips
     •	Emulator Errors: Make sure Intel HAXM is installed or try using a different device image.
 References
 
-	•  Android Developers. (2019). Accessing data using Room DAOs | Android Developers. [online] Available at: https://developer.android.com/training/data-storage/room/accessing-data
-	•  Android Developers. (2020). Defining data using Room entities | Android Developers. [online] Available at: https://developer.android.com/training/data-storage/room/defining-data
-	•  Android Developers. (2024). Download Android Studio & App Tools - Android Developers. [online] Available at: https://developer.android.com/studio [Accessed 2 May 2025].
-	•  Android Developers. (n.d.). Fragment. [online] Available at: https://developer.android.com/reference/android/app/Fragment
-	•  Android Developers. (2025). Generated binding classes. [online] Available at: https://developer.android.com/topic/libraries/data-binding/generated-binding [Accessed 2 May 2025].
-	•  Chernozubov, D. (2020). Recycler view, power of asynchronous view holders creation. [online] Medium. Available at: https://medium.com/@icesrgt/recycler-view-power-of-asynchronous-view-holders-creation-b3c9fe067702 [Accessed 2 May 2025].
-	•  freeCodeCamp.org. (2024). How to Use Git and GitHub – a Guide for Beginners and Experienced Developers. [online] Available at: https://www.freecodecamp.org/news/guide-to-git-github-for-beginners-and-experienced-devs/
-	•  GitHub. (2025). GitHub. [online] Available at: https://github.com/
-	•  hangyuan. (2021). Understanding Java volatile visibility. [online] Stack Overflow. Available at: https://stackoverflow.com/questions/68427434/understanding-java-volatile-visibility
-	•  OpenAI. (2025). ChatGPT. [online] Available at: https://chatgpt.com/
+	• Android Developers. (2019). Accessing data using Room DAOs  |  Android Developers. [online] Available at: https://developer.android.com/training/data-storage/room/accessing-data.
+        • Android Developers. (2020). Defining data using Room entities  |  Android Developers. [online] Available at: https://developer.android.com/training/data-storage/room/defining-data.
+        • Android Developers. (2024). Download Android Studio & App Tools - Android Developers. [online] Available at: https://developer.android.com/studio?gad_source=1&gbraid=0AAAAAC- 
+          IOZkfL_U9h3SgaOdf_qoQ354r_&gclid=Cj0KCQjw2tHABhCiARIsANZzDWrLaqknO6MVmZcqj6OAJeQSHLVCEgMHc1gtjDrF2NrzdAWlQtxYYdQaAovVEALw_wcB&gclsrc=aw.ds [Accessed 2 May 2025].
+        • Android Developers. (n.d.). Fragment. [online] Available at: https://developer.android.com/reference/android/app/Fragment.
+        • Android Developers. (2025). Generated binding classes. [online] Available at: https://developer.android.com/topic/libraries/data-binding/generated-binding [Accessed 2 May 2025].
+        • Dmitry Chernozubov (2020). Recycler view, power of asynchronous view holders creation. [online] Medium. Available at: https://medium.com/@icesrgt/recycler-view-power-of-asynchronous-view-holders- 
+          creation-b3c9fe067702 [Accessed 2 May 2025].
+        • Firebase (2019). Documentation  |  Firebase. [online] Firebase. Available at: https://firebase.google.com/docs.
+        • freeCodeCamp.org. (2024). How to Use Git and GitHub – a Guide for Beginners and Experienced Developers. [online] Available at: https://www.freecodecamp.org/news/guide-to-git-github-for-beginners-and- 
+             experienced-devs/.
+        •GitHub (2024). GitHub Actions Documentation - GitHub Docs. [online] docs.github.com. Available at: https://docs.github.com/en/actions.
+        •GitHub (2025). GitHub. [online] GitHub. Available at: https://github.com/.
+        •Google (2019). Save data in a local database using Room  |  Android Developers. [online] Android Developers. Available at: https://developer.android.com/training/data-storage/room.
+        •hangyuan (2021). Understanding Java volatile visibility. [online] Stack Overflow. Available at: https://stackoverflow.com/questions/68427434/understanding-java-volatile-visibility.
+        •OpenAI (2025). ChatGPT. [online] ChatGPT. Available at: https://chatgpt.com/.
+        •stackOverflow (n.d.). Newest Questions. [online] Stack Overflow. Available at: https://stackoverflow.com/questions.
+        •www.freecodecamp.org. (n.d.). freeCodeCamp.org. [online] Available at: https://www.freecodecamp.org.
+        •www.w3schools.com. (n.d.). Git Tutorial. [online] Available at: https://www.w3schools.com/git/.
 
 
-Done by:
 
-    - Joshua de Wet - ST10313014
-    - Ankriya Padayachee - ST10260507
-    - Kyle Govender - ST10145498
-    - Teagan Griffiths - ST10300913
+
 
