@@ -31,14 +31,6 @@ class CategoriesActivity : AppCompatActivity() {
             insets
         }
 
-        findViewById<Button>(R.id.btnAddCategory).setOnClickListener {
-            startActivity(Intent(this, AddCategoryActivity::class.java))
-        }
-
-        findViewById<Button>(R.id.btnDeleteCategory).setOnClickListener {
-            startActivity(Intent(this, RemoveCategoryActivity::class.java))
-        }
-
         findViewById<Button>(R.id.backBtn).setOnClickListener {
             finish()
         }

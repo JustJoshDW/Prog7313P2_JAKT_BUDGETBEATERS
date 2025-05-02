@@ -89,38 +89,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
     <!-- Button to go back -->
     <Button
         android:id="@+id/backBtn"
         android:layout_width="100dp"
         android:layout_height="55dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="152dp"
         android:layout_marginBottom="4dp"
         android:text="BACK"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Button to add new category -->
-    <Button
-        android:id="@+id/btnAddCategory"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="4dp"
-        android:text="ADD CATEGORY"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Button to delete selected category -->
-    <Button
-        android:id="@+id/btnDeleteCategory"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:text="DELETE CATEGORY"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent" />
     <!-- Fragment container (optional) for dynamic content -->
     <FrameLayout
         android:id="@+id/fragment_container"

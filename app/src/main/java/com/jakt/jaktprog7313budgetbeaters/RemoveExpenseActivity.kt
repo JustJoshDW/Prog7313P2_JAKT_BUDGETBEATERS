@@ -1,6 +1,7 @@
 package com.jakt.jaktprog7313budgetbeaters
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,10 @@ class RemoveExpenseActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.expensesRecyclerView)
         database = AppDatabase.getDatabase(this)
+
+        findViewById<Button>(R.id.Exit).setOnClickListener {
+            finish()
+        }
 
         setupRecyclerView()
         loadExpenses()
