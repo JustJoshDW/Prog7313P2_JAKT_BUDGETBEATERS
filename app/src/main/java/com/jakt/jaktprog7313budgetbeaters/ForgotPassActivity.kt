@@ -1,5 +1,6 @@
 package com.jakt.jaktprog7313budgetbeaters
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -14,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
 class ForgotPassActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_pass)
@@ -27,6 +29,7 @@ class ForgotPassActivity : AppCompatActivity() {
         val emailInput = findViewById<EditText>(R.id.createEmailInput)
         val submitBtn = findViewById<Button>(R.id.submitBtn)
         val infoText = findViewById<TextView>(R.id.alreadyRegisteredtxt)
+        val loginBtn = findViewById<Button>(R.id.LoginBtn)
 
         submitBtn.setOnClickListener {
             val email = emailInput.text.toString().trim()
@@ -52,6 +55,10 @@ class ForgotPassActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        loginBtn.setOnClickListener{
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

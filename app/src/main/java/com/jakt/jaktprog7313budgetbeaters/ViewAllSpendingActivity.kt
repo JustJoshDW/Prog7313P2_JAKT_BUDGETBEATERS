@@ -155,14 +155,20 @@ class ViewAllSpendingActivity : AppCompatActivity() {
 
         val dataSet = BarDataSet(entries, "Expenses by Category").apply {
             colors = ColorTemplate.MATERIAL_COLORS.toList()
-            valueTextColor = android.graphics.Color.BLACK
+            valueTextColor = android.graphics.Color.WHITE
             valueTextSize = 12f
         }
 
         barChart.xAxis.apply {
             valueFormatter = IndexAxisValueFormatter(labels)
             labelCount = labels.size
+            textColor = android.graphics.Color.WHITE
         }
+
+        barChart.legend.apply {
+            textColor = android.graphics.Color.WHITE // ✅ Sets legend text color to white
+        }
+
 
         barChart.data = BarData(dataSet)
         barChart.animateY(1000)

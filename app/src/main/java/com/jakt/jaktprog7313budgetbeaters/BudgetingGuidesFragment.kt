@@ -21,10 +21,6 @@ class BudgetingGuidesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_budgeting_guides, container, false)
 
-        view.findViewById<Button>(R.id.backBtn).setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
-
         val linkViews = listOf(
             Pair(R.id.LinkOne, "https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/creating-a-budget"),
             Pair(R.id.LinkTwo, "https://www.investopedia.com/financial-edge/1109/6-reasons-why-you-need-a-budget.aspx"),

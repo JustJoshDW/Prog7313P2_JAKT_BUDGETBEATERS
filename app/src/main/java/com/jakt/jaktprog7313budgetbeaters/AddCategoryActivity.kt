@@ -28,6 +28,8 @@ class AddCategoryActivity : AppCompatActivity() {
             insets
         }
 
+        setupBottomNav()
+
         binding.SaveBtn.setOnClickListener {
             val categoryName = binding.categoryNameInput.text.toString().trim()
             val description = binding.DescriptionInput.text.toString().trim()
@@ -70,7 +72,7 @@ class AddCategoryActivity : AppCompatActivity() {
                 }
             }
         }
-        setupBottomNav()
+
     }
 
     private fun validateInput(categoryName: String, maxLimit: String, minLimit: String): Boolean {

@@ -10,27 +10,27 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="140dp"
-        android:rotation="180"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_auto_awesome_motion_24" />
+        app:srcCompat="@drawable/title_banner" />
 
     <TextView
         android:id="@+id/SharedBudgetingtxt"
-        android:layout_width="401dp"
+        android:layout_width="325dp"
         android:layout_height="110dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="Shared Budgeting"
+        android:text="SHARED BUDGETING"
         android:textColor="@android:color/white"
-        android:textSize="48sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,16 +49,16 @@
         android:id="@+id/addMembersText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="ADD MEMBERS TO SHARE\nYOUR BUDGETING\n(OPTIONAL)"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:gravity="center"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/SharedBudgetingtxt"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/gradientCurvedBg" />
 
     <TextView
         android:id="@+id/selectNumberText"
@@ -140,10 +140,12 @@
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

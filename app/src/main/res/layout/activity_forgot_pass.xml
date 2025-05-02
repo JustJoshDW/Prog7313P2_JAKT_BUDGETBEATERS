@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/ForgotPasstxt"
-        android:text="Forgot Password"
+        android:text="FORGOT PASSWORD"
         android:layout_width="273dp"
         android:layout_height="161dp"
         android:layout_marginTop="56dp"
@@ -50,21 +50,20 @@
         android:layout_height="48dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/edit_text_bg"
-        android:hint="Enter Email"
+        android:hint="ENTER EMAIL"
         android:inputType="textEmailSubject"
         android:padding="10dp"
         android:textColor="@android:color/black"
-        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <TextView
-        android:id="@+id/emailtxt"
+        android:id="@+id/emailTxt"
         android:layout_width="231dp"
         android:layout_height="56dp"
         android:layout_marginTop="5dp"
-        android:text="Enter your Email to reset your password"
+        android:text="ENTER YOUR EMAIL TO RESET YOUR PASSWORD"
         android:textColor="@android:color/white"
         android:textSize="22sp"
         android:textStyle="italic"
@@ -72,6 +71,17 @@
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <ImageView
+        android:id="@+id/lineView"
+        android:layout_width="410dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailTxt"
+        app:srcCompat="@drawable/white_line" />
 
     <Button
         android:id="@+id/submitBtn"
@@ -91,7 +101,7 @@
         android:layout_width="254dp"
         android:layout_height="79dp"
         android:layout_marginTop="10dp"
-        android:text="CHECK YOUR EMAILS AND FOLLOW THE LINK TO RESET YOUR PASSWORD"
+        android:text="YOUR EMAIL WILL BE VERIFIED FIRST AND THEN YOU WILL BE ABLE TO RESET IT"
         android:textAlignment="center"
         android:textColor="#FF1493"
         android:textSize="18sp"
@@ -99,5 +109,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/submitBtn" />
 
+    <TextView
+        android:id="@+id/RememberPasswordtTxt"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="REMEMBER YOUR PASSWORD?"
+        android:textColor="#009688"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/alreadyRegisteredtxt" />
+
+    <Button
+        android:id="@+id/LoginBtn"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/login_button_colour"
+        android:backgroundTint="@null"
+        android:text="LOGIN HERE"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RememberPasswordtTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
