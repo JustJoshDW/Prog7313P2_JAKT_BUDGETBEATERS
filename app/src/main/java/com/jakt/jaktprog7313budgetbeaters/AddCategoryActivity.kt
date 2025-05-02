@@ -12,37 +12,49 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jakt.jaktprog7313budgetbeaters.databinding.ActivityAddCategoryBinding
 import kotlinx.coroutines.launch
 
+// Activity to add a new category to the application
 class AddCategoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddCategoryBinding
 
+    // This method is called when the activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        enableEdgeToEdge()
+        enableEdgeToEdge()  // Enables edge-to-edge display for a more immersive UI experience
 
+        // Get a reference to the database
         val db = AppDatabase.getDatabase(applicationContext)
+
+        // Setting padding for system bars like status and navigation bar to avoid overlap with content
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // Setup bottom navigation
         setupBottomNav()
 
+        // Listener for the save button
         binding.SaveBtn.setOnClickListener {
+            // Get user input from the fields and trim leading/trailing spaces
             val categoryName = binding.categoryNameInput.text.toString().trim()
             val description = binding.DescriptionInput.text.toString().trim()
             val maxLimitStr = binding.MaxLimitInput.text.toString().trim()
             val minLimitStr = binding.MinLimitInput.text.toString().trim()
 
+            // Validate input fields
             if (validateInput(categoryName, maxLimitStr, minLimitStr)) {
+                // Convert max and min limits to integers
                 val maxLimit = maxLimitStr.toInt()
                 val minLimit = minLimitStr.toInt()
 
+                // Launch a coroutine to save the category in the database
                 lifecycleScope.launch {
                     try {
                         val database = AppDatabase.getDatabase(applicationContext)
+                        // Insert new category into the database
                         database.categoryDao().insertCategory(
                             CategoryEntity(
                                 categoryName = categoryName,
@@ -52,6 +64,7 @@ class AddCategoryActivity : AppCompatActivity() {
                             )
                         )
 
+                        // Show a success message and close the activity
                         runOnUiThread {
                             Toast.makeText(
                                 this@AddCategoryActivity,
@@ -61,6 +74,7 @@ class AddCategoryActivity : AppCompatActivity() {
                             finish()
                         }
                     } catch (e: Exception) {
+                        // Show an error message if saving fails
                         runOnUiThread {
                             Toast.makeText(
                                 this@AddCategoryActivity,
@@ -75,14 +89,17 @@ class AddCategoryActivity : AppCompatActivity() {
 
     }
 
+    // Function to validate the input fields before saving
     private fun validateInput(categoryName: String, maxLimit: String, minLimit: String): Boolean {
         var isValid = true
 
+        // Check if category name is empty
         if (categoryName.isEmpty()) {
             binding.categoryNameInput.error = "Category name required"
             isValid = false
         }
 
+        // Check if max limit is empty or not a number
         if (maxLimit.isEmpty()) {
             binding.MaxLimitInput.error = "Max goal is required"
             isValid = false
@@ -91,6 +108,7 @@ class AddCategoryActivity : AppCompatActivity() {
             isValid = false
         }
 
+        // Check if min limit is empty or not a number
         if (minLimit.isEmpty()) {
             binding.MinLimitInput.error = "Min goal is required"
             isValid = false
@@ -102,28 +120,34 @@ class AddCategoryActivity : AppCompatActivity() {
         return isValid
     }
 
+    // Function to set up bottom navigation bar
     private fun setupBottomNav() {
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener { item ->
+            // Handle navigation based on the selected item in the bottom nav
             when (item.itemId) {
                 R.id.Logout -> {
+                    // Replace fragment with LogoutFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, LogoutFragment())
                         .commit()
                     true
                 }
                 R.id.Menu -> {
+                    // Replace fragment with Menu_NavFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, Menu_NavFragment())
                         .commit()
                     true
                 }
                 R.id.BudgetingGuides -> {
+                    // Replace fragment with BudgetingGuidesFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, BudgetingGuidesFragment())
                         .commit()
                     true
                 }
                 R.id.Awards -> {
+                    // Replace fragment with AwardsFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, AwardsFragment())
                         .commit()
